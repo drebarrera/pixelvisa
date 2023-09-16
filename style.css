@@ -1,0 +1,137 @@
+/*
+    Theme Name: Pixel Visa
+    Author: Andrés Barrera
+    Version: 0.1
+*/
+
+:root {
+    --red: #CE272A;
+    --blue: #0DA1BF;
+    --orange: #FF9505;
+    --purple: #88498F;
+    --green: #5A8859; /*018E42*/
+    --offwhite: #eee;
+    --charcoal: #1e2426;
+}
+
+body {
+    margin: 0;
+    font-family: Lora;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+* {
+    margin-inline: 0;
+    margin-block: 0;
+}
+
+header {
+    width: 100vw;
+    height: 60px;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    z-index: 20;
+}
+
+nav {
+    width: fit-content;
+    height: 20px;
+    display: none;
+    flex-direction: row;
+    column-gap: 18px;
+    margin-top: 10px;
+    font-weight: 300;
+    opacity: 1;
+    font-family: Helvetica;
+    font-size: 18px;
+}
+
+header:hover {
+    animation: 0.5s headerPulldown;
+    animation-fill-mode: forwards;
+}
+
+@keyframes headerPulldown {
+    0% {
+        height: 60px;
+        background-color: rgba(0,0,0,0.5);
+    }
+    100% {
+        height: 90px;
+        background-color: rgba(0,0,0,0.9);
+    }
+}
+
+header:hover nav {
+    display: flex;
+    animation: 0.5s navShow;
+    animation-fill-mode: forwards;
+}
+
+@keyframes navShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+header .navlink {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header .navlink:hover {
+    text-decoration: underline;
+}
+
+header #title {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    color: white;
+    pointer-events: none;
+}
+
+header #title h1 {
+    position: relative;
+    width: fit-content;
+    pointer-events: all;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+header #bar {
+    width: 100px; 
+    height: 4px;
+    position: relative;
+    background-color: white;
+}
+
+section.window {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
