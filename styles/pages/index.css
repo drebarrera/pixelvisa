@@ -1,5 +1,5 @@
 body {
-    background-color: var(--charcoal);
+    background-color: var(--offwhite);
 }
 
 #hero {
@@ -35,16 +35,19 @@ body {
     column-gap: 5px;
     font-size: 42px;
     font-family: Helvetica;
+    margin-top: 5px;
 }
 
 #hero #location-en {
     background-color: rgba(0,0,0,0.5);
-    margin-top: 15px;
+    margin-top: 20px;
     padding: 2px 10px;
     font-size: 24px;
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
 
 #hero #location-en:hover {
@@ -66,11 +69,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 0px 85px 0px;
+    padding: 30px 0px 85px 0px;
     row-gap: 30px;
     background: linear-gradient(to bottom, white 25%, rgba(255,255,255,0.25) 100%), url('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/images/paris-map.png');
     background-position: center;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 #map-section h3 {
@@ -212,6 +216,32 @@ body {
     }
 }
 
+#status-section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0px;
+    background-color: var(--offwhite);
+}
+
+#status-section .content {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#status-section .status-info {
+    text-align: center;
+}
+
+#status-section .status-data {
+    font-weight: 500;
+    font-size: 28px;
+}
+
+#status-section p {
+    font-family: Inter;
+}
+
 #about-section {
     width: 100vw;
     display: flex;
@@ -325,17 +355,18 @@ body {
 
 #places-section {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     margin-top: 60px;
+    margin-bottom: 60px;
     border-radius: 20px 0px;
 }
 
 #places-section h3 {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 500;
     display: flex;
     flex-direction: row;
@@ -350,29 +381,37 @@ body {
 }
 
 #places-supertitle {
-    margin-top: 25px;
+    margin-top: 40px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .place-outer {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px 30px 30px 30px;
+    padding-top: 10px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
-    margin-top: 20px;
+    margin-top: 50px;
     background-color: var(--offwhite);
 }
 
 #countries-outer {
+    --place-color: var(--green);
     background-color: var(--green);
 }
 
 #bites-outer {
+    --place-color: var(--red);
     background-color: var(--red);
+}
+
+#locations-outer {
+    --place-color: var(--blue);
+    background-color: var(--blue);
+    margin-bottom: 35px;
 }
 
 .place-outer h4 {
@@ -388,18 +427,18 @@ body {
 
 .place-outer h4 svg {
     height: 28px;
-    fill: "white";
+    fill: white;
 }
 
 .place {
-    width: 100%;
-    padding: 6px;
+    width: calc(100% - 10px);
+    padding: 5px;
     display: flex;
     flex-direction: row;
-    column-gap: 5px;
-    overflow-x: scroll;
-    background-color: var(--offwhite);
+    flex-wrap: wrap;
+    background-color: white;
     border-radius: 10px;
+    column-gap: 5px;
 }
 
 #places-section .place .card {
@@ -417,48 +456,48 @@ body {
     text-decoration: none;
     z-index: 0;
     border-radius: 10px;
-    cursor: pointer;
-    border: 2px solid var(--offwhite);
-}
-
-#places-section .place .card h5 {
-    font-size: 18px;
-}
-
-#places-section .place .card:hover::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 10px solid var(--offwhite);
-}
-  
-#places-section .place .card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), var(--bg);
+    background: /*linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),*/ var(--bg);
     background-size: cover;
     background-position: center;
-    z-index: -1;
-    filter: blur(0px);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}
+
+#places-section .place .card-outer {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#places-section .place .card-outer h5 {
+    width: 90%;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.25;
+    padding: 2px 6px;
+    text-align: center;
     border-radius: 5px;
+    text-align: center;
+    font-family: Inter;
 }
 
-#places-section .place .card:hover::before {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), var(--bg);
-    background-position: center;
-    background-size: cover;
-    filter: blur(2px);
+#places-section .place .card-outer:hover .card {
+    animation: 0.5s hoverCard;
+    animation-fill-mode: forwards;
 }
 
-.card h5 {
-    font-weight: 500;
+#places-section .place .card-outer h5 span {
+    display: none;
+}
+
+#places-section .place .card-outer:hover {
+    background-color: var(--place-color);
+    color: white;
 }
 
 #places-section .content {
@@ -481,19 +520,16 @@ body {
 }
 
 #places-section #locations {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    width: calc(100% - 40px);
     column-gap: 30px;
     row-gap: 30px;
-    padding: 20px;
+    padding: 30px 20px 0px 20px;
     background-color: white;
 }
 
 #places-section #locations .card {
-    width: 300px;
-    height: 450px;
+    width: 250px;
+    height: 375px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -501,7 +537,7 @@ body {
     align-items: center;
     row-gap: 10px;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     z-index: 0;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
 }
@@ -511,7 +547,7 @@ body {
 }
 
 #places-section #locations .card h5 {
-    font-size: 26px;
+    font-size: 22px;
 }
 
 #places-section #locations .card::before {
@@ -528,16 +564,22 @@ body {
     filter: blur(0px);
 }
 
-#places-section #locations .card:hover::before {
-    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), var(--bg);
-    background-position: center;
-    background-size: cover;
-    filter: blur(2px);
+#places-section #locations .card:hover {
+    animation: 0.5s hoverCard;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverCard {
+    0% {
+        transform: scale(1);
+    } 100% {
+        transform: scale(1.1);
+    }
 }
 
 #places-section .button {
     background-color: var(--red);
-    font-size: 16px;
+    font-size: 14px;
     padding: 2px 6px;
     border: 3px solid var(--red);
     border-radius: 3px;
@@ -561,3 +603,36 @@ body {
     }
 }
 
+#places-section .place-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+
+}
+
+#places-section .place-button a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    padding: 6px 10px;
+    border: 3px solid var(--place-color);
+    background-color: var(--place-color);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    align-self: center;
+    fill: white;
+}
+
+#places-section .place-button a svg {
+    height: 20px;
+}
+
+#places-section .place-button a:hover {
+    background-color: white;
+    color: var(--place-color);
+    fill: var(--place-color);
+}

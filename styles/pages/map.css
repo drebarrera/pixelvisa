@@ -1,14 +1,20 @@
+body {
+    background-color: var(--charcoal);
+}
+
 #map-section {
     width: 100vw;
+    min-height: calc(100vh - 90px);
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--green);
     padding: 65px 0px 25px 0px;
+    overflow-x: hidden;
 }
 
-.content {
+#map-section .content {
     max-width: 90%;
     height: fit-content;
     margin: 25px;
@@ -26,7 +32,7 @@
 
 #map-section .content #map {
     min-width: 450px;
-    height: 600px;
+    height: 700px;
     flex-grow: 1;
     width: 69%;
     border-radius: 20px 0px 0px 20px;
@@ -39,6 +45,7 @@
     border: 3px solid var(--blue);
     opacity: 0.25;
     animation: 1.5s animateRing infinite;
+    pointer-events: none;
 }
 
 @keyframes animateRing {
@@ -101,7 +108,7 @@
 #map-section .content #panel {
     min-width: 280px;
     width: 29%;
-    height: 600px;
+    height: 700px;
     background-color: var(--offwhite);
     border-radius: 0px 20px 20px 0px;
     overflow-y: scroll;
@@ -139,6 +146,18 @@
 .location-entry p {
     font-family: Inter;
     font-weight: 400;
+}
+
+.location-entry a {
+    font-family: Inter;
+    font-weight: 400;
+    color: var(--red);;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.location-entry a:hover {
+    color: var(--charcoal);
 }
 
 .entry-item {
@@ -198,5 +217,13 @@
 }
 
 .leaflet-popup-content svg{
-    height: 22px;
+    height: 20px;
+}
+
+.leaflet-popup-content b {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 3px;
 }

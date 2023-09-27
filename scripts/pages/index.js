@@ -32,7 +32,7 @@
 function scrollLock() {
     const elements = ["map-section", "places-section"];
     for (let i = 0; i < elements.length; i++) {
-        const anchor = document.getElementById(elements[i]).getBoundingClientRect().top + window.scrollY - document.getElementById(elements[i]).computedStyleMap().get('margin-top').value;
+        const anchor = document.getElementById(elements[i]).getBoundingClientRect().top + window.scrollY - 60;
         if ((window.scrollY >= anchor - 15) && (window.scrollY <= anchor + 5)) {
             window.scrollTo(0, anchor);
         }
@@ -42,3 +42,25 @@ function scrollLock() {
 window.addEventListener('scroll', function() {
     scrollLock();
 });
+
+/*document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('#places-section .place .card');
+    for (let i = 0; i < cards.length; i++) {
+        let container = cards[i];
+        const svg = container.querySelector('svg');
+        const textPath = container.querySelector('#textPath');
+        const bbox = container.getBoundingClientRect();
+        svg.setAttribute('width', bbox.width);
+        svg.setAttribute('height', bbox.height);
+        const path = document.querySelector('#rectPath');
+        const text_offset = 14;
+        const d = `M${0 + text_offset} ${0 + text_offset} H ${bbox.width - text_offset - 4} V ${bbox.height - text_offset - 4} H ${0 + text_offset} Z`;
+        path.setAttribute('d', d);
+        svg.style.position = 'absolute';
+        svg.style.top = '0';
+        svg.style.left = '0';
+        svg.style.pointerEvents = 'none';
+        container.appendChild(svg);
+    }
+    
+});*/

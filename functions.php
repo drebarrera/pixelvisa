@@ -64,36 +64,9 @@
         );
     }
 
-    function latest_travel_content($content) {
-        $current_date = current_time('Ymd');  // Get current date in 'Ymd' format
-
-        $args = array(
-            'post_type' => 'travel_locations',
-            'posts_per_page' => 1,
-            'orderby' => 'meta_value_num',
-            'order' => 'DESC',
-            'meta_key' => 'active-date',
-            'meta_query' => array(
-                array(
-                    'key' => 'active-date',
-                    'compare' => '<=',
-                    'value' => $current_date,
-                    'type' => 'NUMERIC'
-                ),
-            )
-        );
-
-        $latest_travel = new WP_Query( $args );
-        if ( $latest_travel->have_posts() ) {
-            while ( $latest_travel->have_posts() ) {
-                $latest_travel->the_post();
-                return get_field($content);
-            }
-        }
-    }
-
     function leaflet() {
         global $post;
+        global $template;
         if (is_front_page()) {
             wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
             wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
@@ -101,7 +74,8 @@
             wp_enqueue_script('custom-leaflet', get_template_directory_uri() . '/scripts/leaflet/index-leaflet.js', array('leaflet-js', 'leaflet-geodesic-js'), null, true);
         } else {
             $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
-            if ( $template_name === 'map' ) {
+            if ( empty($template_name) ) $template_name = basename($template, '.php');
+            if ( $template_name === 'map' || $template_name == 'single-countries' ) {
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
                 wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
                 wp_enqueue_script('leaflet-geodesic-js', 'https://cdn.jsdelivr.net/npm/leaflet.geodesic', array('leaflet-js'), null, true);
@@ -149,11 +123,36 @@
         return $ret_arr;
     }
 
+    function parseText($text, $replacement) {
+        if (substr($text, 0, 2) == "- ") {
+            $items = explode("- ", $text);
+            $text = [];
+            for ($i = 0; $i < count($items); $i++) {
+                if ($items[$i] != "") $text[] = preg_replace('/- ([^:-]+):/', $replacement['list'], "- " . $items[$i]);
+            }
+            $text = implode('<br>', $text);
+        } else {
+            $text = preg_replace('/- ([^:-]+):/', $replacement['sublist'], $text);
+            $text = preg_replace('/(^|\n)([^:\n]+:)([^\n]+)/', $replacement['topic'], $text);
+        }
+        return $text;
+    }
+
     function localize_map_data() {
         global $post;
+        global $template;
         $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
-        if (is_front_page() || $template_name === 'map') {
-            $current_date = current_time('Ymd');  // Get current date in 'Ymd' format
+        if ( empty($template_name) ) $template_name = basename($template, '.php');
+        if (is_front_page() || $template_name === 'map' || $template_name === 'single-countries') {
+            $filter = [];
+            $map_context = null;
+            if ($template_name == 'single-countries') {
+                $filter['location-post-country-post-country'] = get_field('country');
+                $map_context['coordinates'] = [floatval(get_field('latitude')), floatval(get_field('longitude'))];
+                $map_context['country'] = get_field('country');
+                $map_context['ISO_A3'] = get_field('abbrv-3');
+            } 
+            $current_date = current_time('Ymd'); 
             $map_data = array();
             
             $args = array(
@@ -176,17 +175,31 @@
             if ( $latest_travel->have_posts() ) {
                 while ( $latest_travel->have_posts() ) {
                     $latest_travel->the_post();
-                    $map_data[] = get_data(["active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"]], array());
+                    $map_data[] = get_data(["active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag", "get-permalink"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"], "food-post", ["restaurant", "rating", "latitude", "longitude", "meal-price"]], array());
                 }
             }
 
             if (is_front_page()) {
+                $filtered_map_data = [];
                 for ($i = 0; $i < count($map_data); $i++) {
-                    if ($i > 1 && $map_data[$i]["location-post-country-post-country"] == $map_data[$i - 1]["location-post-country-post-country"]) unset($map_data[$i]);
+                    if ($i <= 1 || $map_data[$i]["location-post-country-post-country"] !== $map_data[$i - 1]["location-post-country-post-country"]) $filtered_map_data[] = $map_data[$i];
+                }
+                $map_data = array_values($filtered_map_data);
+            } else if ($template_name === 'single-countries') {
+                
+                foreach ($filter as $f => $v) {
+                    $filtered_map_data = [];
+                    for ($i = 0; $i < count($map_data); $i++) {
+                        if ($map_data[$i][$f] == $v) {
+                            $filtered_map_data[] = $map_data[$i];
+                        }
+                    }
+                    $map_data = array_values($filtered_map_data);
                 }
             }
 
             wp_localize_script('custom-leaflet', 'map_data', $map_data);
+            if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
         }
     }
 
