@@ -1,11 +1,11 @@
 <?php
 
     function register_post_types() {
-        register_post_type( 'travel_locations',
+        register_post_type( 'cities',
             array(
                 'labels' => array(
-                    'name' => __( 'Travel Locations' ),
-                    'singular_name' => __( 'Travel Location' )
+                    'name' => __( 'Cities' ),
+                    'singular_name' => __( 'City' )
                 ),
                 'public' => true,
                 'has_archive' => true,
@@ -132,7 +132,7 @@
             }
             $text = implode('<br>', $text);
         } else {
-            $text = preg_replace('/- ([^:-]+):/', $replacement['sublist'], $text);
+            $text = preg_replace('/(^|\n)([^-]+)- ([^:-]+):/', $replacement['sublist'], $text);
             $text = preg_replace('/(^|\n)([^:\n]+:)([^\n]+)/', $replacement['topic'], $text);
         }
         return $text;

@@ -19,7 +19,7 @@
                     <div id="info-panel">
                         <h3>QUICK FACTS</h3>
 <?php
-                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "LAST UPDATED" => "active-date");
+                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "EXCHANGE RATE" => "exchange-rate", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "LAST UPDATED" => "active-date");
                         foreach ($country_keys as $header => $field) {
                             $value = [];
                             if (is_array($field)) {
@@ -40,6 +40,9 @@
                                 $value = implode(", ", $value);
                             } else if ($header == "LAST UPDATED") {
                                 $value = preg_replace('/(\d{4})(\d{2})(\d{2})/', '$3/$2/$1', $value);
+                            } else if ($header == "EXCHANGE RATE") {
+                                $currency = explode("-", explode(",", get_field("currency"))[0])[0];
+                                $value = "1.00 USD" . " = " . $value . " " . $currency;
                             }
                             
                             if ( !empty($value) ) echo '<h4>' . $header . '</h4><p>' . $value . '</p>';
@@ -53,7 +56,7 @@
                         $country = get_field("country");
 
                         $args = array(
-                            'post_type' => 'travel_locations',
+                            'post_type' => 'cities',
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
@@ -177,7 +180,7 @@
                                 if ( !empty($data['cover-photo']) ) {
                                     $bg = "url('" . $data["cover-photo"]["url"] . "')";
                                     echo '<a href="' . $data["get-permalink"] . '" class="card-outer" style="--bg: ' . $bg . '"><div class="card"></div>
-                                    <h5>' . $data["restaurant"] . '</h5>
+                                    <h5>' . $data["dish"] . '</h5>
                                     <p>' . $data["location-post-location-en"] . '</p>
                                     </a>';
                                 }
@@ -204,7 +207,7 @@
                             echo '</div>
                             </section>';
                         }
-                $content = ["NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "MONEY" => ["" => "currency-description", "Spending Power" => "spending-power"], "LANGUAGE" => ["Language Structure" => "language-description", "Beginners Guide" => "language-guide"]];
+                $content = ["NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "HOLIDAYS" => "holidays", "MONEY" => ["" => "currency-description", "Spending Power" => "spending-power"], "LANGUAGE" => ["Language Structure" => "language-description", "Beginners Guide" => "language-guide"]];
                 foreach ($content as $title => $field) {
                     if (is_array($field)) {
                         $data = [];
@@ -234,7 +237,7 @@
                             <h3>' . $title . '</h3>';
                             if ($photo) echo '<img src="' . $photo['url'] . '"/>
                             <em style="width:60%; text-align: center;">'. $photo['alt'] . '</em>';
-                            echo '<div class="item">' . parseText($data, ['list' => '<h4>$1</h4>', 'sublist' => '<b>$1</b>', 'topic' => '<div><span style="font-weight: 600; color: var(--green);">$2</span>$3</div>']) . '</div>
+                            echo '<div class="item">' . parseText($data, ['list' => '<h4>$1</h4>', 'sublist' => '<p class="subtopic">$2</p><b>$3</b>', 'topic' => '<div><span style="font-weight: 600; color: var(--green);">$3</span>$4</div>']) . '</div>
                             </section>';
                         }
                     }

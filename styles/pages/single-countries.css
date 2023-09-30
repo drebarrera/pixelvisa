@@ -239,6 +239,13 @@ body {
     max-height: 350px;
 }
 
+.description-section .subtopic {
+    margin-top: 8px;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 16px;
+}
+
 .leaflet-popup-content svg{
     height: 20px;
 }

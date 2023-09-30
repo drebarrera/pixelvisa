@@ -35,7 +35,7 @@ body {
 }
 
 .section h4 {
-    color: var(--green);
+    color: var(--blue);
     font-weight: 600;
     font-size: 20px;
 }
@@ -132,15 +132,11 @@ body {
     font-size: 18px;
     margin-top: 25px;
     font-weight: 500;
-}
-
-#basic-info-section #dynamic-section .card-outer p {
-    font-size: 16px;
-    font-weight: 300;
+    margin-bottom: 10px;
 }
 
 #basic-info-section #dynamic-section .card-outer:hover {
-    background-color: var(--green);
+    background-color: var(--blue);
     color: white;
 }
 
@@ -181,6 +177,15 @@ body {
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
     overflow-x: hidden;
+}
+
+#basic-info-section a {
+    color: var(--red);
+    text-decoration: none;
+}
+
+#basic-info-section a:hover {
+    color: var(--purple);
 }
 
 #images-section {

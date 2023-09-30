@@ -7,7 +7,7 @@
         <header>
             <nav>
                 <?php 
-                    $links = array("Home" => "/", "Map" => "/map", "Videos" => "videos.php", "Places" => "places.php", "Food" => "food.php", "About Me" => "about.php");
+                    $links = array("Home" => "/", "Map" => "/map", "Videos" => "/videos", "Destinations" => "/destinations", "Food" => "/food", "About Me" => "/#about-section");
                     foreach ($links as $text => $url) echo "<a href='$url' class='navlink'>$text</a>";
                 ?>
             </nav>
