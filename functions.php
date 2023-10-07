@@ -52,6 +52,17 @@
                 'has_archive' => true,
             )
         );
+        register_post_type( 'general_assets',
+            array(
+                'labels' => array(
+                    'name' => __( 'General Assets' ),
+                    'singular_name' => __( 'General Asset' )
+                ),
+                'public' => false,
+                'show_ui' => true,
+                'has_archive' => true,
+            )
+        );
         register_post_type( 'experiences',
             array(
                 'labels' => array(
@@ -141,7 +152,8 @@
     function localize_map_data() {
         global $post;
         global $template;
-        $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
+        if ( !empty($post) ) $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
+        else $template_name = "";
         if ( empty($template_name) ) $template_name = basename($template, '.php');
         if (is_front_page() || $template_name === 'map' || $template_name === 'single-countries') {
             $filter = [];

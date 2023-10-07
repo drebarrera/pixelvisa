@@ -28,6 +28,27 @@
             $hero_items = get_data(["active-date","location-post", ["cover-photo", "location-en", "location-lang", "pixel-visa-lang", "get-permalink"]], array());
         }
     }
+
+    $portrait_url = "";
+    $travel_icon_url = "";
+    $biography = "";
+    $travel_start = "";
+    $args = array(
+        'post_type' => 'general_assets',
+        'posts_per_page' => 1,
+    );
+    $general_assets = new WP_Query( $args );
+    if ( $general_assets->have_posts() ) {
+        while ( $general_assets->have_posts() ) {
+            $general_assets->the_post();
+            $portrait = get_field("portrait-image");
+            if ( !empty($portrait) ) $portrait_url = $portrait["url"];
+            $travel_icon = get_field("icon-image");
+            if ( !empty($travel_icon) ) $travel_icon_url = $travel_icon["url"];
+            $biography = get_field("biography");
+            $travel_start = get_field("travel-start");
+        }
+    }
 ?>
 
     <section id="hero" class="window" style="--bg: url('<?php $photo = $hero_items["location-post-cover-photo"]; if ( !empty($photo) ){ echo $photo["url"]; }?>')">
@@ -190,7 +211,7 @@
         <div id="map" class="map"></div>
         <div id="overlayer" class="map">
             <a href="/map" class="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"/></svg>Explore the Pixel Visa Map</a>
-            <div id="dre-travel"></div>
+            <div id="dre-travel" style="--bg: url(' <?php echo $travel_icon_url ?> ')"></div>
         </div>
     </section>
     <section id="status-section">
@@ -198,8 +219,11 @@
             <div id="days-traveling" class="status-info">
                 <p class="status-data">
 <?php
-                $current_date = current_time('Ymd');
-                echo $current_date - 20230928;
+                $current_date = DateTime::createFromFormat('Ymd', current_time('Ymd'));
+                $start_date = DateTime::createFromFormat('Ymd', $travel_start);
+                $interval = $start_date->diff($current_date);
+                $totalDays = $interval->days;
+                echo $totalDays;
 ?> 
                 </p>
                 <p>Days Traveled</p>
@@ -210,11 +234,11 @@
                 $current_date = current_time('Ymd'); 
 
                 $args = array(
-                    'post_type' => 'cities',
+                    'post_type' => 'travel_logs',
                     'posts_per_page' => 1,
                     'orderby' => 'meta_value_num',
                     'order' => 'DESC',
-                    'meta_key' => 'rating',
+                    'meta_key' => 'active-date',
                     'meta_query' => array(
                         array(
                             'key' => 'active-date',
@@ -229,7 +253,7 @@
                 if ( $latest_travel->have_posts() ) {
                     while ( $latest_travel->have_posts() ) {
                         $latest_travel->the_post();
-                        echo get_field("location-en");
+                        echo get_data(["location-post", ["location-en"]], array())["location-post-location-en"];
                     }
                 }
 ?> 
@@ -261,13 +285,10 @@
     </section>
     <section id="about-section">
         <div class="content">
-            <div id="self-portrait"></div>
+            <div id="self-portrait" style="--bg: url('<?php echo $portrait_url ?>')"></div>
             <div id="text-info">
                 <h3>Hello World.</h3>
-                <p>Ever since I was a kid, I've had an obsession with the world.</p>
-                <p>Now I am finally traveling it!</p>
-                <br>
-                <p>My name is Dre and I am a lifelong adventurer, ambitious software engineer, and creative mind. Pixel Visa is a creation of mine to document my travels around the globe. I have visited over 20 different countries in my lifetime, but I am now embarking on a journey which will take me across the world.</p>
+                <p><?php echo $biography ?></p>
                 <br>
                 <p style="font-weight: 500; font-family: Lora; font-size: 17px;line-height: 1.2;">Follow me while I explore all that this world has to offer.<br><br></p>
                 <a href="/map" class="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C8.852 0 6 2.553 6 5.702c0 4.682 4.783 5.177 6 12.298 1.217-7.121 6-7.616 6-12.298C18 2.553 15.149 0 12 0zm0 8a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 8zm12 16-6.707-2.427L12 24l-5.581-2.427L0 24l4-9 3.96-1.584c.38.516.741 1.08 1.061 1.729l-3.523 1.41-1.725 3.88 2.672-1.01 1.506-2.687-.635 3.044 4.189 1.789L12 19.55l.465 2.024 4.15-1.89-.618-3.033 1.572 2.896 2.732.989-1.739-3.978-3.581-1.415c.319-.65.681-1.215 1.062-1.731L20.064 15 24 24z"/></svg></svg>Where am I now?</a>

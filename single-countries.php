@@ -19,7 +19,7 @@
                     <div id="info-panel">
                         <h3>QUICK FACTS</h3>
 <?php
-                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "EXCHANGE RATE" => "exchange-rate", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "LAST UPDATED" => "active-date");
+                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "EXCHANGE RATE" => "exchange-rate", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "POPULAR MOBILE CARRIER" => "mobile-carrier", "LAST UPDATED" => "active-date");
                         foreach ($country_keys as $header => $field) {
                             $value = [];
                             if (is_array($field)) {
@@ -207,7 +207,7 @@
                             echo '</div>
                             </section>';
                         }
-                $content = ["NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "HOLIDAYS" => "holidays", "MONEY" => ["" => "currency-description", "Spending Power" => "spending-power"], "LANGUAGE" => ["Language Structure" => "language-description", "Beginners Guide" => "language-guide"]];
+                $content = ["TRAVELER'S NOTES" => "travelers-notes", "NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "HOLIDAYS" => "holidays", "MONEY" => ["" => "currency-description", "Spending Power" => "spending-power"], "LANGUAGE" => ["Language Structure" => "language-description", "Beginners Guide" => "language-guide"], "GREEN CULTURE" => "green-culture", "SEX CULTURE" => "sex-culture"];
                 foreach ($content as $title => $field) {
                     if (is_array($field)) {
                         $data = [];

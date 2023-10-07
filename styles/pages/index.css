@@ -71,7 +71,7 @@ body {
     align-items: center;
     padding: 30px 0px 85px 0px;
     row-gap: 30px;
-    background: linear-gradient(to bottom, white 25%, rgba(255,255,255,0.25) 100%), url('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/images/paris-map.png');
+    background: linear-gradient(to bottom, white 25%, rgba(255,255,255,0.25) 100%), url('http://pixelvisa.net/wp-content/themes/pixel-visa/assets/images/paris-map.png');
     background-position: center;
     background-size: cover;
     overflow-x: hidden;
@@ -124,7 +124,7 @@ body {
     height: 100px;
     position: absolute;
     border-radius: 55px;
-    background: url('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/images/dre-travel.jpg');
+    background: var(--bg);
     background-position: center;
     background-size: cover;
     margin-left: calc(100% - calc(100px / 2) + 15px);
@@ -263,7 +263,7 @@ body {
     height: 400px;
     border: 10px solid white;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
-    background: url('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/images/dre-portrait.jpg');
+    background: var(--bg);
     background-position: center;
     background-size: cover;
 }
