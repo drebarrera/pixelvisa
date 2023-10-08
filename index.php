@@ -1,10 +1,6 @@
 <?php
     get_header();
-    page_style("index");
-    page_script("index");
-
     $current_date = current_time('Ymd'); 
-
     $args = array(
         'post_type' => 'travel_logs',
         'posts_per_page' => 1,

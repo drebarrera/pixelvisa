@@ -96,8 +96,15 @@
     }
 
     function styles() {
+        global $post;
+        global $template;
         wp_enqueue_style('main_styles', get_stylesheet_uri());
         wp_enqueue_style('fonts', get_template_directory_uri() . '/styles/fonts.css');
+        if ( !empty($post) ) $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
+        else $template_name = "";
+        if ( empty($template_name) ) $template_name = basename($template, '.php');
+        page_style($template_name);
+        page_script($template_name);
     }
 
     function scripts() {

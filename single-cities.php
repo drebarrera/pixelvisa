@@ -3,8 +3,6 @@
     Template Name: Cities
     */
     get_header();
-    page_style("single-cities");
-    page_script("single-cities");
     global $post;
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();

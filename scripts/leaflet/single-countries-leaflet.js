@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let bounds = L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180));
     map.setMaxBounds(bounds);
 
-    fetch('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/geojson/countries.geojson')
+    fetch('http://pixelvisa.net/wp-content/themes/pixel-visa/assets/geojson/countries.geojson')
     .then(response => response.json())
     .then(data => {
         // Add the GeoJSON layer to the map

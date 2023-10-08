@@ -3,8 +3,6 @@
     Template Name: Countries
     */
     get_header();
-    page_style("single-countries");
-    page_script("single-countries");
 
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();
@@ -19,7 +17,7 @@
                     <div id="info-panel">
                         <h3>QUICK FACTS</h3>
 <?php
-                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "EXCHANGE RATE" => "exchange-rate", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "POPULAR MOBILE CARRIER" => "mobile-carrier", "LAST UPDATED" => "active-date");
+                        $country_keys = array("COUNTRY" => ["country", "country-lang"], "REGION" => "region", "CAPITAL CITY" => "capital-city", "FLAG" => "flag", "LANGUAGES SPOKEN" => "language", "MAJOR RELIGIONS" => "religion", "GOVERNMENT" => "government", "CURRENCY" => "currency", "EXCHANGE RATE" => "exchange-rate", "TIMEZONES" => "timezones", "ABBREVIATIONS" => ["abbrv-2","abbrv-3"], "TELEPHONE COUNTRY CODE" => "phone-cc", "EMERGENCY TELEPHONE NUMBER" => "emergency-number", "TALLEST PEAKS" => "peaks", "BUS SERVICES" => "bus-networks", "TRAIN SERVICES" => "train-networks", "POPULAR AIRLINES" => "air-networks", "ECOSYSTEM" => "habitats", "DANGEROUS WILDLIFE" => "dangerous-wildlife", "POPULAR MOBILE CARRIER" => "mobile-carrier", "LOCAL PINT" => "beer", "LAST UPDATED" => "active-date");
                         foreach ($country_keys as $header => $field) {
                             $value = [];
                             if (is_array($field)) {
