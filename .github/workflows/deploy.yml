@@ -17,26 +17,11 @@ jobs:
         run: |
           # Install any necessary dependencies here
 
-      - name: Deploy to Hostinger
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # Commands to deploy your code on the Hostinger server
-
-            # Set the path to your project on the server
-            REMOTE_PROJECT_PATH="/public_html/wp-content/themes/test"
-          
-            # Create a temporary directory to hold your code
-            TEMP_DIR="$(mktemp -d)"
-          
-            # Copy your code to the temporary directory
-            cp -r ./* "${TEMP_DIR}"
-          
-            # Use SCP to securely copy your code to the Hostinger server
-            scp -i "${key}" -r "${TEMP_DIR}" "${username}@${host}:${REMOTE_PROJECT_PATH}"
-          
-            # Clean up the temporary directory
-            rm -rf "${TEMP_DIR}"
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: main # The branch name where you want to push the assets
+          FOLDER: main # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Main: ({sha}) {msg}" # The commit message
