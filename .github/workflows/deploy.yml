@@ -1,0 +1,42 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to match your branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          # Install any necessary dependencies here
+
+      - name: Deploy to Hostinger
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Commands to deploy your code on the Hostinger server
+
+            # Set the path to your project on the server
+            REMOTE_PROJECT_PATH="/public_html/wp-content/themes/test"
+          
+            # Create a temporary directory to hold your code
+            TEMP_DIR="$(mktemp -d)"
+          
+            # Copy your code to the temporary directory
+            cp -r ./* "${TEMP_DIR}"
+          
+            # Use SCP to securely copy your code to the Hostinger server
+            scp -i "${key}" -r "${TEMP_DIR}" "${username}@${host}:${REMOTE_PROJECT_PATH}"
+          
+            # Clean up the temporary directory
+            rm -rf "${TEMP_DIR}"
