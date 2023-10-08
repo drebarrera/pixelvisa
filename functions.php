@@ -105,7 +105,6 @@
         if ( empty($template_name) ) $template_name = basename($template, '.php');
         page_style($template_name);
         page_script($template_name);
-        echo "test";
     }
 
     function scripts() {
