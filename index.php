@@ -70,16 +70,22 @@
                     'posts_per_page' => 15,
                     'orderby' => 'meta_value_num',
                     'order' => 'DESC',
-                    'meta_key' => 'rating'
+                    'meta_key' => 'rating',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'active-date',
+                            'compare' => '<=',
+                            'value' => $current_date,
+                            'type' => 'NUMERIC'
+                        ),
+                    )
                 );
 
-                echo $current_date;
                 $latest_travel = new WP_Query( $args );
                 if ( $latest_travel->have_posts() ) {
                     while ( $latest_travel->have_posts() ) {
                         $latest_travel->the_post();
-                        $data = get_data(["active-date", "cover-photo", "country", "flag", "get-permalink"], array());
-                        echo $data["active-date"];
+                        $data = get_data(["cover-photo", "country", "flag", "get-permalink"], array());
                         if ( !empty($data["cover-photo"]) ) {
                             $bg = "url('" . $data["cover-photo"]["url"] . "')";
                             echo '<a href="' . $data["get-permalink"] . '" class="card-outer">
