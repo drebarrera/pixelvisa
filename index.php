@@ -82,6 +82,7 @@
                 );
 
                 echo $query->found_posts;
+                echo "test";
                 $latest_travel = new WP_Query( $args );
                 if ( $latest_travel->have_posts() ) {
                     while ( $latest_travel->have_posts() ) {
