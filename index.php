@@ -219,7 +219,7 @@
                 /*$start_date = DateTime::createFromFormat('Ymd', $travel_start);
                 $interval = $start_date->diff($current_date);
                 $totalDays = $interval->days;*/
-                echo $current_date;
+                
                 //echo $totalDays;
 ?> 
                 </p>
