@@ -104,10 +104,15 @@
         else $template_name = "";
         if ( empty($template_name) ) $template_name = basename($template, '.php');
         page_style($template_name);
-        page_script($template_name);
     }
 
     function scripts() {
+        global $post;
+        global $template;
+        if ( !empty($post) ) $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
+        else $template_name = "";
+        if ( empty($template_name) ) $template_name = basename($template, '.php');
+        page_script($template_name);
         wp_enqueue_script('jquery');
     }
 
@@ -116,6 +121,7 @@
     }
 
     function page_script($page) {
+        echo get_template_directory_uri() . '/scripts/pages/' . $page . '.js';
         wp_enqueue_script('page_script', get_template_directory_uri() . '/scripts/pages/' . $page . '.js', array('jquery'), '1.0.0', true);
     }
 
