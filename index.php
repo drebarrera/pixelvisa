@@ -1,5 +1,6 @@
 <?php
     get_header();
+    echo "testing";
     $current_date = current_time('Ymd'); 
     $args = array(
         'post_type' => 'travel_logs',
