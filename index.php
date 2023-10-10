@@ -220,7 +220,7 @@
                 $interval = $start_date->diff($current_date);
                 $totalDays = $interval->days;
                 
-                echo $totalDays;
+                
 ?> 
                 </p>
                 <p>Days Traveled</p>
