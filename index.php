@@ -86,6 +86,7 @@
                     while ( $latest_travel->have_posts() ) {
                         $latest_travel->the_post();
                         $data = get_data(["cover-photo", "country", "flag", "get-permalink"], array());
+                        echo $data["country"];
                         if ( !empty($data["cover-photo"]) ) {
                             $bg = "url('" . $data["cover-photo"]["url"] . "')";
                             echo '<a href="' . $data["get-permalink"] . '" class="card-outer">
