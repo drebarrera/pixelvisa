@@ -216,11 +216,12 @@
                 <p class="status-data">
 <?php
                 $current_date = DateTime::createFromFormat('Ymd', current_time('Ymd'));
-                $start_date = DateTime::createFromFormat('Ymd', $travel_start);
+                echo $travel_start;
+                /*$start_date = DateTime::createFromFormat('Ymd', $travel_start);
                 $interval = $start_date->diff($current_date);
                 $totalDays = $interval->days;
                 
-                
+                echo $totalDays;*/
 ?> 
                 </p>
                 <p>Days Traveled</p>
