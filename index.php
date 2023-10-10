@@ -73,12 +73,13 @@
                     'meta_key' => 'rating'
                 );
 
-                echo $query->found_posts;
+                echo $current_date;
                 $latest_travel = new WP_Query( $args );
                 if ( $latest_travel->have_posts() ) {
                     while ( $latest_travel->have_posts() ) {
                         $latest_travel->the_post();
-                        $data = get_data(["cover-photo", "country", "flag", "get-permalink"], array());
+                        $data = get_data(["active-date", "cover-photo", "country", "flag", "get-permalink"], array());
+                        echo $data["active-date"];
                         if ( !empty($data["cover-photo"]) ) {
                             $bg = "url('" . $data["cover-photo"]["url"] . "')";
                             echo '<a href="' . $data["get-permalink"] . '" class="card-outer">
