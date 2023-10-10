@@ -70,19 +70,10 @@
                     'posts_per_page' => 15,
                     'orderby' => 'meta_value_num',
                     'order' => 'DESC',
-                    'meta_key' => 'rating',
-                    'meta_query' => array(
-                        array(
-                            'key' => 'active-date',
-                            'compare' => '<=',
-                            'value' => $current_date,
-                            'type' => 'NUMERIC'
-                        ),
-                    )
+                    'meta_key' => 'rating'
                 );
 
                 echo $query->found_posts;
-                echo "test";
                 $latest_travel = new WP_Query( $args );
                 if ( $latest_travel->have_posts() ) {
                     while ( $latest_travel->have_posts() ) {
