@@ -1,6 +1,5 @@
 <?php
     get_header();
-    echo "testing";
     $current_date = current_time('Ymd'); 
     $args = array(
         'post_type' => 'travel_logs',
@@ -220,6 +219,7 @@
                 $start_date = DateTime::createFromFormat('Ymd', $travel_start);
                 $interval = $start_date->diff($current_date);
                 $totalDays = $interval->days;
+                echo "TEST";
                 echo $totalDays;
 ?> 
                 </p>
