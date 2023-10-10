@@ -78,6 +78,7 @@
     function leaflet() {
         global $post;
         global $template;
+        echo "a";
         if (is_front_page()) {
             wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
             wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
