@@ -83,7 +83,6 @@
             wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
             wp_enqueue_script('leaflet-geodesic-js', 'https://cdn.jsdelivr.net/npm/leaflet.geodesic', array('leaflet-js'), null, true);
             wp_enqueue_script('custom-leaflet', get_template_directory_uri() . '/scripts/leaflet/index-leaflet.js', array('leaflet-js', 'leaflet-geodesic-js'), null, true);
-            echo "enqueueing";
         } else {
             $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
             if ( empty($template_name) ) $template_name = basename($template, '.php');

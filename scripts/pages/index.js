@@ -29,6 +29,10 @@
     
 });*/
 
+document.addEventListener("DOMContentLoaded", function() {
+    alert("working");
+});
+
 function scrollLock() {
     const elements = ["map-section", "places-section"];
     for (let i = 0; i < elements.length; i++) {
