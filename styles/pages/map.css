@@ -91,7 +91,7 @@ body {
     height: 30px;
     position: absolute;
     border-radius: 21px;
-    background: url('http://pixel-visa.local/wp-content/themes/pixel-visa/assets/images/travel-icon.jpg');
+    background: var(--bg);
     background-position: center;
     background-size: cover;
     border: 3px solid var(--blue);
