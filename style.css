@@ -63,6 +63,12 @@ header:hover {
     animation-fill-mode: forwards;
 }
 
+.headerDown {
+    height: fit-content;
+    min-height: 90px;
+    background-color: rgba(0,0,0,0.9);
+}
+
 @keyframes headerPulldown {
     0% {
         height: 60px;

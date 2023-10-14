@@ -5,7 +5,7 @@
         <?php wp_head(); ?>
     </head>
     <body>
-        <header>
+        <header onclick="headerDown(this)">
             <nav>
                 <?php 
                     $links = array("Home" => "/", "Map" => "/map", "Videos" => "/videos", "Destinations" => "/destinations", "Food" => "/food", "About Me" => "/#about-section");

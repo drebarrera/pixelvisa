@@ -114,6 +114,7 @@
         if ( empty($template_name) ) $template_name = basename($template, '.php');
         page_script($template_name);
         wp_enqueue_script('jquery');
+        wp_enqueue_script('global_js', get_template_directory_uri() . '/scripts/global.js');
     }
 
     function page_style($page) {
