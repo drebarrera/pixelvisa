@@ -41,11 +41,6 @@ function scrollLock() {
 
 window.addEventListener('scroll', function() {
     scrollLock();
-    window.scrollTo(0, window.scrollY);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    window.scrollTo(0, window.scrollY);
 });
 
 /*document.addEventListener("DOMContentLoaded", function() {
