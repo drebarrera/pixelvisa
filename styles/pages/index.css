@@ -691,26 +691,6 @@ body {
         font-size: 16px;
     }
 
-    /*#places-section #locations {
-        column-gap: 10px;
-    }
-
-    #places-section #locations .card {
-        width: 125px;
-        height: 187.5px;
-        font-size: 14px;
-    }
-
-    #places-section #locations .card h5 {
-        font-size: 14px;
-    }
-
-    #places-section #locations .card .button {
-        font-size: 12px;
-        margin: 0px 8px;
-        padding: 2px 4px;
-    }*/
-
     #map-section h3 {
         font-size: 24px;
     }
@@ -724,7 +704,16 @@ body {
     }
 
     #map-section #overlayer {
+        margin-top: 60px;
+        background-color: rgba(0,0,0,0.25);
+    }
+
+    #map-section #overlayer #dre-travel {
         display: none;
+    }
+
+    #map-section #overlayer .button{
+        display: flex;
     }
 
     #status-section .content {
