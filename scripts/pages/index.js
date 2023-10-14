@@ -35,12 +35,18 @@ function scrollLock() {
         const anchor = document.getElementById(elements[i]).getBoundingClientRect().top + window.scrollY - 60;
         if ((window.scrollY >= anchor - 15) && (window.scrollY <= anchor + 5)) {
             window.scrollTo(0, anchor);
+        } else { 
+            window.scrollTo(0, window.scrollY);
         }
     }
 }
 
 window.addEventListener('scroll', function() {
     scrollLock();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.scrollTo(0, window.scrollY);
 });
 
 /*document.addEventListener("DOMContentLoaded", function() {
