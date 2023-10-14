@@ -645,3 +645,106 @@ body {
     color: var(--place-color);
     fill: var(--place-color);
 }
+
+@media screen and (max-width: 768px) {
+    #hero #location {
+        font-size: 28px;
+    }
+
+    #places-section #places-supertitle {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    #places-section h3 {
+        font-size: 32px;
+    }
+
+    #places-section h3 svg {
+        height: 40px;
+    }
+
+    .place-outer {
+        margin-top: 20px;
+    }
+
+    .place-outer h4 {
+        font-size: 18px;
+    }
+
+    .place-outer h4 svg {
+        height: 20px;
+    }
+
+    #places-section .place .card-outer {
+        width: 125px;
+        padding: 5px;
+        row-gap: 15px;
+    }
+
+    #places-section .place .card {
+        width: 125px;
+        height: 125px;
+    }
+
+    #places-section .place .card-outer h5 {
+        font-size: 16px;
+    }
+
+    #places-section #locations {
+        column-gap: 10px;
+    }
+
+    #places-section #locations .card {
+        width: 125px;
+        height: 187.5px;
+        font-size: 14px;
+    }
+
+    #places-section #locations .card h5 {
+        font-size: 14px;
+    }
+
+    #places-section #locations .card .button {
+        font-size: 12px;
+        margin: 0px 8px;
+        padding: 2px 4px;
+    }
+
+    #map-section h3 {
+        font-size: 24px;
+    }
+
+    #map-section h3 svg {
+        font-size: 24px;
+    }
+
+    #map-section #underlayer {
+        display: none;
+    }
+
+    #map-section #overlayer {
+        display: none;
+    }
+
+    #status-section .content {
+        width: 98%;
+    }
+
+    #status-section .status-data {
+        font-size: 18px;
+    }
+
+    #status-section p {
+        font-size: 14px;
+    }
+
+    #self-portrait {
+        min-width: 300px;
+    }
+
+    #about-section .content #text-info {
+        min-width: 325px;
+        padding: 10px;
+    }
+}

@@ -37,11 +37,11 @@ function scrollLock() {
             window.scrollTo(0, anchor);
         }
     }
-    window.scrollTo(0, window.scrollY);
 }
 
 window.addEventListener('scroll', function() {
     scrollLock();
+    window.scrollTo(0, window.scrollY);
 });
 
 document.addEventListener("DOMContentLoaded", function() {
