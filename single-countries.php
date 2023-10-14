@@ -73,7 +73,7 @@
                         if ( $latest_travel->have_posts() ) {
                             while ( $latest_travel->have_posts() ) {
                                 $latest_travel->the_post();
-                                $data = get_data(["cover-photo", "location-lang", "city", "get-permalink", "country-post", ["country"]], array());
+                                $data = get_data(["cover-photo", "location-lang", "city", "city-lang", "get-permalink", "country-post", ["country"]], array());
                                 if ($data["country-post-country"] == $country) {
                                     $filtered[] = $data;
                                 }
@@ -90,7 +90,7 @@
                                     $bg = "url('" . $data["cover-photo"]["url"] . "')";
                                     echo '<a href="' . $data["get-permalink"] . '" class="card-outer" style="--bg: ' . $bg . '"><div class="card"></div>
                                     <h5>' . $data["city"] . '</h5>
-                                    <p>' . $data["location-lang"] . '</p>
+                                    <p>' . $data["city-lang"] . '</p>
                                     </a>';
                                 }
                             }
