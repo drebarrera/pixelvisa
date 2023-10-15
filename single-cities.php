@@ -202,7 +202,7 @@
                     echo '</div>
                     </section>';
                 }
-                $content = ["TRAVELER'S NOTES" => "travelers-notes", "NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "NEIGHBORHOODS" => "neighborhoods", "HOW TO GET HERE" => "arrival"];
+                $content = ["TRAVELER'S NOTES" => "travelers-notes", "NOTABLE FEATURES" => "known-for", "ACTIVITIES" => ["Popular Activities" => "activities", "Underrated Destinations" => "underrated"], "NEIGHBORHOODS" => "neighborhoods", "HOW TO GET HERE" => "arrival"];
                 foreach ($content as $title => $field) {
                     if (is_array($field)) {
                         $data = [];
