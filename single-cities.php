@@ -68,7 +68,7 @@
                             // Field-Specific Formatting
                             if ($header == "LAST UPDATED") {
                                 $value = preg_replace('/(\d{4})(\d{2})(\d{2})/', '$3/$2/$1', $value);
-                            } else if ($header == "TRAIN" || $header == "BUS") {
+                            } else if ($header == "TRAIN" || $header == "BUS" || $header == "AVERAGE MEAL COST" || $header == "AVERAGE HOSTEL COST") {
                                 if ( !empty($value) )
                                     $value = explode(" ", $value);
                                     $cost = $value[count($value) - 1];
