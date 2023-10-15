@@ -260,7 +260,15 @@
                 <p class="status-data">
 <?php
                 $current_date = current_time('Ymd'); 
-                $args = array('post_type' => 'countries');
+                $args = array('post_type' => 'countries',
+                'meta_query' => array(
+                    array(
+                        'key' => 'active-date',
+                        'compare' => '<=',
+                        'value' => $current_date,
+                        'type' => 'NUMERIC'
+                    ),
+                ));
                 $query = new WP_Query( $args );
                 echo $query->found_posts;
 ?> 
@@ -271,7 +279,15 @@
                 <p class="status-data">
 <?php
                 $current_date = current_time('Ymd'); 
-                $args = array('post_type' => 'cities');
+                $args = array('post_type' => 'cities',
+                'meta_query' => array(
+                    array(
+                        'key' => 'active-date',
+                        'compare' => '<=',
+                        'value' => $current_date,
+                        'type' => 'NUMERIC'
+                    ),
+                ));
                 $query = new WP_Query( $args );
                 echo $query->found_posts;
 ?> 
