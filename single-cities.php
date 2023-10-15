@@ -69,7 +69,7 @@
                             if ($header == "LAST UPDATED") {
                                 $value = preg_replace('/(\d{4})(\d{2})(\d{2})/', '$3/$2/$1', $value);
                             } else if ($header == "TRAIN" || $header == "BUS" || $header == "AVERAGE MEAL COST" || $header == "AVERAGE HOSTEL COST") {
-                                if ( !empty($value) )
+                                if ( !empty($value) ) {
                                     $value = explode(" ", $value);
                                     $cost = $value[count($value) - 1];
                                     $currency = explode("-", explode(",", get_data(["country-post", ["currency"]], array())["country-post-currency"])[0]);
@@ -81,6 +81,7 @@
                                         else $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0];
                                     }
                                     $value = implode(" ", $value);
+                                }
                             } else if ($header == "TIMEZONE") {
                                 if ($value == "") $value = get_data(["country-post", ["timezones"]], array())["country-post-timezones"];
                             }

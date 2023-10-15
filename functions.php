@@ -86,7 +86,7 @@
         } else {
             $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
             if ( empty($template_name) ) $template_name = basename($template, '.php');
-            if ( $template_name === 'map' || $template_name == 'single-countries' ) {
+            if ( $template_name === 'map' || $template_name == 'single-countries' || $template_name == 'single-cities' ) {
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
                 wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
                 wp_enqueue_script('leaflet-geodesic-js', 'https://cdn.jsdelivr.net/npm/leaflet.geodesic', array('leaflet-js'), null, true);
@@ -168,7 +168,7 @@
         if ( !empty($post) ) $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
         else $template_name = "";
         if ( empty($template_name) ) $template_name = basename($template, '.php');
-        if (is_front_page() || $template_name === 'map' || $template_name === 'single-countries') {
+        if (is_front_page() || $template_name === 'map' || $template_name === 'single-countries'  || $template_name === 'single-cities') {
             $filter = [];
             $map_context = null;
             if ($template_name == 'single-countries') {
@@ -176,6 +176,9 @@
                 $map_context['coordinates'] = [floatval(get_field('latitude')), floatval(get_field('longitude'))];
                 $map_context['country'] = get_field('country');
                 $map_context['ISO_A3'] = get_field('abbrv-3');
+            } else if ($template_name == 'single-cities') {
+                $filter['location-post-city'] = get_field('city');
+                $map_context['coordinates'] = [floatval(get_field('latitude')), floatval(get_field('longitude'))];
             } 
             $current_date = current_time('Ymd'); 
             $map_data = array();
@@ -210,7 +213,7 @@
                     if ($i <= 1 || $map_data[$i]["location-post-country-post-country"] !== $map_data[$i - 1]["location-post-country-post-country"]) $filtered_map_data[] = $map_data[$i];
                 }
                 $map_data = array_values($filtered_map_data);
-            } else if ($template_name === 'single-countries') {
+            } else if ($template_name === 'single-countries' || $template_name === 'single-cities') {
                 
                 foreach ($filter as $f => $v) {
                     $filtered_map_data = [];
