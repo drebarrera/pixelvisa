@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let center = (map_data.length > 0) ? map_coordinates : [0, 0];
     let zoom = (map_data.length > 0) ? 12 : 2;
     var map = L.map('map', {center: center, zoom: zoom, attributionControl: false, minZoom: 2});
-    console.log("test", map_data);
     // Adjust attribution on bottom left
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
