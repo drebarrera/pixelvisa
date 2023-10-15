@@ -22,7 +22,7 @@
                     <div id="info-panel">
 <?php
                         echo '<h3>' . strtoupper(get_field("city")) . ' AT A GLANCE</h3>';
-                        $location_keys = array("CITY" => ["city", "city-lang"], "COUNTRY" => ["country-post", ["get-permalink", "country", "country-lang"]], "TIMEZONE" => "timezone", "TRAIN" => ["train", "train-cost"], "BUS" => ["bus", "bus-cost"], "TERRAIN" => "terrain", "WEATHER" => "weather", "LAST UPDATED" => "active-date");
+                        $location_keys = array("CITY" => ["city", "city-lang"], "COUNTRY" => ["country-post", ["get-permalink", "country", "country-lang"]], "TIMEZONE" => "timezone", "TRAIN" => ["train", "train-cost"], "BUS" => ["bus", "bus-cost"], "TERRAIN" => "terrain", "WEATHER" => "weather", "AVERAGE MEAL COST" => "meal-cost", "AVERAGE HOSTEL COST" => "hostel-cost", "LAST UPDATED" => "active-date");
                         foreach ($location_keys as $header => $field) {
                             $value = [];
                             if (is_array($field)) {
