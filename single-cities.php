@@ -73,8 +73,13 @@
                                     $value = explode(" ", $value);
                                     $cost = $value[count($value) - 1];
                                     $currency = explode("-", explode(",", get_data(["country-post", ["currency"]], array())["country-post-currency"])[0]);
-                                    if ($currency[0] != "USD") $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD)";
-                                    else $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . ")";
+                                    if ($header == "TRAIN" || $header == "BUS") {
+                                        if ($currency[0] != "USD") $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD)";
+                                        else $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . ")";
+                                    } else {
+                                        if ($currency[0] != "USD") $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD";
+                                        else $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0];
+                                    }
                                     $value = implode(" ", $value);
                             } else if ($header == "TIMEZONE") {
                                 if ($value == "") $value = get_data(["country-post", ["timezones"]], array())["country-post-timezones"];
