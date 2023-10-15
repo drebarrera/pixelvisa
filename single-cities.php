@@ -202,7 +202,7 @@
                     echo '</div>
                     </section>';
                 }
-                /*$content = ["NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "MONEY" => ["" => "currency-description", "Spending Power" => "spending-power"], "LANGUAGE" => ["Language Structure" => "language-description", "Beginners Guide" => "language-guide"]];
+                $content = ["TRAVELER'S NOTES" => "travelers-notes", "NOTABLE FEATURES" => "known-for", "DESTINATIONS" => ["Popular Destinations" => "destinations", "Underrated Destinations" => "underrated"], "NEIGHBORHOODS" => "neighborhoods", "HOW TO GET HERE" => "arrival"];
                 foreach ($content as $title => $field) {
                     if (is_array($field)) {
                         $data = [];
@@ -237,7 +237,7 @@
                         }
                     }
                     
-                }*/
+                }
 ?>
                 <div id="photo-lightbox" class="content">
                     <svg onclick="hideLightbox();" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
