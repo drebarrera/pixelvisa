@@ -72,13 +72,15 @@
                                 if ( !empty($value) ) {
                                     $value = explode(" ", $value);
                                     $cost = $value[count($value) - 1];
-                                    $currency = explode("-", explode(",", get_data(["country-post", ["currency"]], array())["country-post-currency"])[0]);
-                                    if ($header == "TRAIN" || $header == "BUS") {
-                                        if ($currency[0] != "USD") $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD)";
-                                        else $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . ")";
-                                    } else {
-                                        if ($currency[0] != "USD") $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD";
-                                        else $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0];
+                                    if ( !empty($cost) ) {
+                                        $currency = explode("-", explode(",", get_data(["country-post", ["currency"]], array())["country-post-currency"])[0]);
+                                        if ($header == "TRAIN" || $header == "BUS") {
+                                            if ($currency[0] != "USD") $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD)";
+                                            else $value[count($value) - 1] = "(" . $currency[2] . $cost . " " . $currency[0] . ")";
+                                        } else {
+                                            if ($currency[0] != "USD") $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0] . " / $" . toUSD($cost) . " USD";
+                                            else $value[count($value) - 1] = $currency[2] . $cost . " " . $currency[0];
+                                        }
                                     }
                                     $value = implode(" ", $value);
                                 }
@@ -232,7 +234,7 @@
                             <h3>' . $title . '</h3>';
                             if ($photo) echo '<img src="' . $photo['url'] . '"/>
                             <em style="width:60%; text-align: center;">'. $photo['alt'] . '</em>';
-                            echo '<div class="item">' . parseText($data, ['list' => '<h4>$1</h4>', 'sublist' => '<b>$1</b>', 'topic' => '<div><span style="font-weight: 600; color: var(--green);">$2</span>$3</div>']) . '</div>
+                            echo '<div class="item">' . parseText($data, ['list' => '<h4>$1</h4>', 'sublist' => '<b>$1</b>', 'topic' => '<div><span style="font-weight: 600; color: var(--blue);">$2</span>$3</div>']) . '</div>
                             </section>';
                         }
                     }

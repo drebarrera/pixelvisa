@@ -73,6 +73,26 @@
                 'has_archive' => true,
             )
         );
+        register_post_type( 'coworking',
+            array(
+                'labels' => array(
+                    'name' => __( 'Coworking Spaces' ),
+                    'singular_name' => __( 'Coworking Space' )
+                ),
+                'public' => true,
+                'has_archive' => true,
+            )
+        );
+        register_post_type( 'stays',
+            array(
+                'labels' => array(
+                    'name' => __( 'Stays' ),
+                    'singular_name' => __( 'Stay' )
+                ),
+                'public' => true,
+                'has_archive' => true,
+            )
+        );
     }
 
     function leaflet() {
