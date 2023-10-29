@@ -10,6 +10,7 @@
             if ( !empty($photo) ) :
                 function toUSD($value) {
                     $exchange_rate = get_data(["country-post", ["exchange-rate"]], array())["country-post-exchange-rate"];
+                    echo $exchange_rate;
                     return round(floatval($value) / floatval($exchange_rate), 2);
                     
                 }
