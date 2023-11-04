@@ -265,7 +265,11 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 if (geojson != "") var tcolor = geojson["color"];
                 else var tcolor = "red"; 
-                entry_name.textContent = "Arrived in " + panel_data[datum]["city"] + " by " + '<span style="color:' + tcolor + ';">' + map_data[i]["transportation"] + "</span>";
+                arrival_span = document.createElement("span");
+                arrival_span.style.color = tcolor;
+                arrival_span.textContent = map_data[i]["transportation"];
+                entry_name.textContent = "Arrived in " + panel_data[datum]["city"] + " by ";
+                entry_name.append(arrival_span);
                 entry_type.innerHTML = visit_svg + " Visit";
                 entry_button.textContent = "All About " + panel_data[datum]["city"];
                 entry_button.href = panel_data[datum]["location-url"];
