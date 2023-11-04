@@ -162,13 +162,23 @@ document.addEventListener("DOMContentLoaded", function() {
             last_key = marker_data[i][3].toString();
         }
         // Create geodesic paths between markers
-        if (i < marker_data.length - 1) {
-            var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i + 1][0][0], marker_data[i + 1][0][1]]]
-            var geodesic = L.geodesic([coords], {
-                weight: 2,
-                opacity: 1,
-                color: '#CE272A'
-            }).addTo(map);
+        if (i > 0) {
+            var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
+            if (map_data[i]["geojson"] != null) {
+                var geojson = JSON.parse(map_data[i]["geojson"]);
+                var geojsonLayer = L.geoJSON(geojson["route"], {
+                    style: {
+                              fillColor: 'transparent',
+                              color: geojson["color"],
+                            }
+                }).addTo(map);
+            } else {
+                var geodesic = L.geodesic([coords], {
+                    weight: 2,
+                    opacity: 1,
+                    color: '#CE272A'
+                }).addTo(map);
+            }
         }
     }
     // Change last marker to current icon
