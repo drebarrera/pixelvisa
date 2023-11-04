@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var routePopup = geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
                 geojsonLayer.addEventListener("hover", function() {
                     routePopup.openPopup();
+                    console.log("hi");
                 });
             } else {
                 var geodesic = L.geodesic([coords], {
@@ -185,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }).addTo(map);
                 var routePopup = geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
                 geodesic.addEventListener("hover", function() {
+                    console.log("hi");
                     routePopup.openPopup();
                 });
             }
