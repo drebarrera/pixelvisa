@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let i = 0; i < map_data.length; i++) {
         let datum = map_data[i];
         let location = datum["location-post-location-en"];
-        if (location in panel_data) panel_data[location]["entry"].push({"transportation": datum["transportation"], "tcolor": datum["geojson"]["color"], "video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]});
+        if (location in panel_data) panel_data[location]["entry"].push({"transportation": datum["transportation"], "tcolor": tcolor, "video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]});
         else {
             panel_data[location] = {"country": datum["location-post-country-post-country"], "country-url": datum["location-post-country-post-get-permalink"], "flag": datum["location-post-country-post-flag"], "city": datum["location-post-city"], "location-url": datum["location-post-get-permalink"], "coordinates": datum.coordinates, "entry": [{"video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]}]};
             marker_keys[0][location] = Object.keys(marker_keys[0]).length;
@@ -161,15 +161,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             last_key = marker_data[i][3].toString();
         }
+        var tcolor = "";
         // Create geodesic paths between markers
         if (i > 0) {
             var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
             if (map_data[i]["geojson"] != null) {
+                console.log(map_data[i]["geojson"]);
                 var geojson = JSON.parse(map_data[i]["geojson"]);
+                tcolor = geojson["color"];
                 var geojsonLayer = L.geoJSON(geojson["route"], {
                     style: {
                               fillColor: 'transparent',
-                              color: geojson["color"],
+                              color: tcolor,
                             }
                 }).addTo(map);
             } else {
