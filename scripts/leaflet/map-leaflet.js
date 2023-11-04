@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     color: '#CE272A'
                 }).addTo(map);
                 var routePopup = geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
-                geojsonLayer.addEventListener("hover", function() {
+                geodesic.addEventListener("hover", function() {
                     routePopup.openPopup();
                 });
             }
