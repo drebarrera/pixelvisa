@@ -173,22 +173,14 @@ document.addEventListener("DOMContentLoaded", function() {
                               color: geojson["color"],
                             }
                 }).addTo(map);
-                var routePopup = geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
-                geojsonLayer.addEventListener("mouseover", function() {
-                    routePopup.openPopup();
-                    console.log("hi");
-                });
+                geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
             } else {
                 var geodesic = L.geodesic([coords], {
                     weight: 2,
                     opacity: 1,
                     color: '#CE272A'
                 }).addTo(map);
-                var routePopup = geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
-                geodesic.addEventListener("mouseover", function() {
-                    console.log("hi");
-                    routePopup.openPopup();
-                });
+                geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
             }
         }
     }
