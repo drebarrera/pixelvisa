@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             }
                 }).addTo(map);
                 var routePopup = geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
-                geojsonLayer.addEventListener("hover", function() {
+                geojsonLayer.addEventListener("mouseover", function() {
                     routePopup.openPopup();
                     console.log("hi");
                 });
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     color: '#CE272A'
                 }).addTo(map);
                 var routePopup = geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
-                geodesic.addEventListener("hover", function() {
+                geodesic.addEventListener("mouseover", function() {
                     console.log("hi");
                     routePopup.openPopup();
                 });
