@@ -164,9 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create geodesic paths between markers
         if (i > 0) {
             var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
-            if (map_data[i]["geojson"] != null) {
-                console.log("test");
-                console.log(map_data[i]["geojson"]);
+            if (map_data[i]["geojson"] != null && map_data[i]["geojson"] != "") {
                 var geojson = JSON.parse(map_data[i]["geojson"]);
                 var geojsonLayer = L.geoJSON(geojson["route"], {
                     style: {
