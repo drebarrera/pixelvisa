@@ -173,12 +173,14 @@ document.addEventListener("DOMContentLoaded", function() {
                               color: geojson["color"],
                             }
                 }).addTo(map);
+                geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
             } else {
                 var geodesic = L.geodesic([coords], {
                     weight: 2,
                     opacity: 1,
                     color: '#CE272A'
                 }).addTo(map);
+                geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
             }
         }
     }
@@ -263,13 +265,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry_button.textContent = "Taste " + entry["food-restaurant"];
                 entry_button.href = entry["experience-url"];
             } else {
-                if (geojson != "") var tcolor = geojson["color"];
-                else var tcolor = "red"; 
-                arrival_span = document.createElement("span");
-                arrival_span.style.color = tcolor;
-                arrival_span.textContent = map_data[i]["transportation"];
-                entry_name.textContent = "Arrived in " + panel_data[datum]["city"] + " by ";
-                entry_name.append(arrival_span);
+                entry_name.textContent = "Arrived in " + panel_data[datum]["city"];
                 entry_type.innerHTML = visit_svg + " Visit";
                 entry_button.textContent = "All About " + panel_data[datum]["city"];
                 entry_button.href = panel_data[datum]["location-url"];
