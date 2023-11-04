@@ -162,10 +162,11 @@ document.addEventListener("DOMContentLoaded", function() {
             last_key = marker_data[i][3].toString();
         }
         // Create geodesic paths between markers
+        var geojson = "";
         if (i > 0) {
             var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
             if (map_data[i]["geojson"] != null && map_data[i]["geojson"] != "") {
-                var geojson = JSON.parse(map_data[i]["geojson"]);
+                geojson = JSON.parse(map_data[i]["geojson"]);
                 var geojsonLayer = L.geoJSON(geojson["route"], {
                     style: {
                               fillColor: 'transparent',
@@ -262,7 +263,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry_button.textContent = "Taste " + entry["food-restaurant"];
                 entry_button.href = entry["experience-url"];
             } else {
-                entry_name.textContent = "Arrived in " + panel_data[datum]["city"];
+                if (geojson != "") var tcolor = geojson["color"];
+                else var tcolor = "red"; 
+                entry_name.textContent = "Arrived in " + panel_data[datum]["city"] + " by " + '<span style="color:' + tcolor + ';">' + map_data[i]["transportation"] + "</span>";
                 entry_type.innerHTML = visit_svg + " Visit";
                 entry_button.textContent = "All About " + panel_data[datum]["city"];
                 entry_button.href = panel_data[datum]["location-url"];
