@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let i = 0; i < map_data.length; i++) {
         let datum = map_data[i];
         let location = datum["location-post-location-en"];
-        if (location in panel_data) panel_data[location]["entry"].push({"video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]});
+        if (location in panel_data) panel_data[location]["entry"].push({"transportation": datum["transportation"], "tcolor": datum["geojson"]["color"], "video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]});
         else {
             panel_data[location] = {"country": datum["location-post-country-post-country"], "country-url": datum["location-post-country-post-get-permalink"], "flag": datum["location-post-country-post-flag"], "city": datum["location-post-city"], "location-url": datum["location-post-get-permalink"], "coordinates": datum.coordinates, "entry": [{"video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]}]};
             marker_keys[0][location] = Object.keys(marker_keys[0]).length;
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry_button.textContent = "Taste " + entry["food-restaurant"];
                 entry_button.href = entry["experience-url"];
             } else {
-                entry_name.textContent = "Arrived in " + panel_data[datum]["city"];
+                entry_name.textContent = "Arrived in " + panel_data[datum]["city"] + ' by <span style="color: ' + panel_data[datum]["tcolor"] + ';">' + panel_data[datum]["transportation"] + "</span>";
                 entry_type.innerHTML = visit_svg + " Visit";
                 entry_button.textContent = "All About " + panel_data[datum]["city"];
                 entry_button.href = panel_data[datum]["location-url"];
