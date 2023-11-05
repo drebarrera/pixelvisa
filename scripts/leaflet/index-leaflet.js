@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-        maxZoom: 19
+        maxZoom: 18
     }).addTo(map);
 
     L.control.attribution({
