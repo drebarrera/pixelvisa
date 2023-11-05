@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     let center = (map_data.length > 0) ? map_data[map_data.length - 1].coordinates : [0, 0];
-    let zoom = (map_data.length > 0) ? 5 : 2
+    let zoom = (map_data.length > 0) ? 6 : 2
     var map = L.map('map', {center: center, zoom: zoom, attributionControl: false});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-        maxZoom: 18
+        maxZoom: 19
     }).addTo(map);
 
     L.control.attribution({
