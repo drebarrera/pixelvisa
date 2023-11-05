@@ -227,13 +227,13 @@
                 }
             }
 
-            if (is_front_page()) {
+            /*if (is_front_page()) {
                 $filtered_map_data = [];
                 for ($i = 0; $i < count($map_data); $i++) {
                     if ($i <= 1 || $map_data[$i]["location-post-country-post-country"] !== $map_data[$i - 1]["location-post-country-post-country"]) $filtered_map_data[] = $map_data[$i];
                 }
                 $map_data = array_values($filtered_map_data);
-            } else if ($template_name === 'single-countries' || $template_name === 'single-cities') {
+            } else */if ($template_name === 'single-countries' || $template_name === 'single-cities') {
                 
                 foreach ($filter as $f => $v) {
                     $filtered_map_data = [];
