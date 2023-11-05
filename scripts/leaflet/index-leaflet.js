@@ -29,13 +29,33 @@ document.addEventListener("DOMContentLoaded", function() {
         let coordinates = data.coordinates;
         var marker = L.marker(coordinates, {icon: location_icon}).addTo(map);
         if (i == map_data.length - 1) marker.bindPopup("<b>Catch me in " + data["location-post-country-post-country"] + " "  +  data["location-post-country-post-flag"] + "!</b>").openPopup();
-        else {
+        // Create geodesic paths between markers
+        var geojson = "";
+        if (i > 0) {
+            var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
+            if (map_data[i]["geojson"] != null && map_data[i]["geojson"] != "") {
+                geojson = JSON.parse(map_data[i]["geojson"]);
+                var geojsonLayer = L.geoJSON(geojson["route"], {
+                    style: {
+                              fillColor: 'transparent',
+                              color: geojson["color"],
+                            }
+                }).addTo(map);
+            } else {
+                var geodesic = L.geodesic([coords], {
+                    weight: 2,
+                    opacity: 1,
+                    color: '#CE272A'
+                }).addTo(map);
+            }
+        }
+        /*else {
             let path = [coordinates, map_data[i + 1].coordinates];
             var geodesic = L.geodesic([path], {
                 weight: 2,
                 opacity: 1,
                 color: '#CE272A'
             }).addTo(map);
-        }
+        }*/
     }
 });
