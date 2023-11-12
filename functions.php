@@ -205,7 +205,6 @@
             
             $args = array(
                 'post_type' => 'travel_logs',
-                'posts_per_page' => 5000,
                 'orderby' => 'meta_value_num',
                 'order' => 'ASC',
                 'meta_key' => 'active-date',
@@ -224,6 +223,7 @@
             if ( $latest_travel->have_posts() ) {
                 while ( $latest_travel->have_posts() ) {
                     $latest_travel->the_post();
+                    $map_data[] = get_data(["geojson", "transportation", "active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag", "get-permalink"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"], "food-post", ["restaurant", "rating", "latitude", "longitude", "meal-price"]], array());
                 }
             }
 
