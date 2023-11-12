@@ -224,7 +224,6 @@
                 while ( $latest_travel->have_posts() ) {
                     $latest_travel->the_post();
                     $map_data[] = get_data(["geojson", "transportation", "active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag", "get-permalink"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"], "food-post", ["restaurant", "rating", "latitude", "longitude", "meal-price"]], array());
-                    echo $map_data["location-post-location-en"];
                 }
             }
 
@@ -249,6 +248,7 @@
 
             wp_localize_script('custom-leaflet', 'map_data', $map_data);
             if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
+            echo $map_context["location-post-location-en"];
         }
     }
 
