@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Create map
     let center = (map_data.length > 0) ? map_data[map_data.length - 1].coordinates : [0, 0];
-    let zoom = (map_data.length > 0) ? 5 : 2;
+    let zoom = (map_data.length > 0) ? 6 : 2;
     var map = L.map('map', {center: center, zoom: zoom, attributionControl: false, minZoom: 2});
 
     // Adjust attribution on bottom left
@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var markers = {};
     var e_markers = {};
     for (let i = 0; i < marker_data.length; i++) {
+        console.log(marker_data[i]);
         marker_datum = marker_data[i];
         // If marker has not already been placed
         if ( !(marker_data[i][3] in markers_placed) ) {
