@@ -204,7 +204,18 @@
             $map_data = array();
             
             $args = array(
-                'post_type' => 'travel_logs'
+                'post_type' => 'travel_logs',
+                'orderby' => 'meta_value_num',
+                'order' => 'ASC',
+                'meta_key' => 'active-date',
+                'meta_query' => array(
+                    array(
+                        'key' => 'active-date',
+                        'compare' => '<=',
+                        'value' => $current_date,
+                        'type' => 'NUMERIC'
+                    ),
+                )
             );
 
             $latest_travel = new WP_Query( $args );
