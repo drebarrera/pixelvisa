@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var marker_data = new Array(); // Marker data holds keyed data for markers
     var marker_keys = [{},{}]; // Marker keys holds a location: key and key: location dictionaries
     for (let i = 0; i < map_data.length; i++) {
+        console.log(map_data[i]);
         let datum = map_data[i];
         let location = datum["location-post-location-en"];
         if (location in panel_data) panel_data[location]["entry"].push({"video-url": datum["video-post-get-permalink"], "video-title": datum["video-post-title"], "video-type": datum["video-post-type"], "video-coordinates": datum["video-post-coordinates"], "experience-url": datum["experience-post-get-permalink"], "experience-title": datum["experience-post-experience"], "experience-coordinates": datum["experience-post-coordinates"], "active-date": datum["active-date"], "entry-key": datum["entry-key"], "food-coordinates": datum["food-post-coordinates"], "food-restaurant": datum["food-post-restaurant"], "food-rating": datum["food-post-rating"]});
@@ -129,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var markers = {};
     var e_markers = {};
     for (let i = 0; i < marker_data.length; i++) {
-        console.log(marker_data[i]);
         marker_datum = marker_data[i];
         // If marker has not already been placed
         if ( !(marker_data[i][3] in markers_placed) ) {
