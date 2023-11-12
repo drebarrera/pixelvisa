@@ -204,7 +204,7 @@
             $map_data = array();
             
             $args = array(
-                'post_type' => 'travel_logs',
+                'post_type' => 'travel_logs'
                 
             );
 
