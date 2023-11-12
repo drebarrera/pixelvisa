@@ -204,7 +204,19 @@
             $map_data = array();
             
             $args = array(
-                'post_type' => 'travel_logs'
+                'post_type' => 'travel_logs',
+                'posts_per_page' => 1,
+                'orderby' => 'meta_value_num',
+                'order' => 'ASC',
+                'meta_key' => 'active-date',
+                'meta_query' => array(
+                    array(
+                        'key' => 'active-date',
+                        'compare' => '<=',
+                        'value' => $current_date,
+                        'type' => 'NUMERIC'
+                    ),
+                )
             );
 
             $latest_travel = new WP_Query( $args );
@@ -213,7 +225,7 @@
             if ( $latest_travel->have_posts() ) {
                 while ( $latest_travel->have_posts() ) {
                     $latest_travel->the_post();
-                    echo get_data(["location-post", ["location-en"]],array())["location-post-location-en"] . "," . get_data(["active-date"],array())["active-date"] . (get_data(["active-date"],array())["active-date"] <= $current_date) . "\n";
+                    echo get_data(["location-post", ["location-en"]],array())["location-post-location-en"] . "," . get_data(["active-date"],array())["active-date"] . "\n";
                     $map_data[] = get_data(["geojson", "transportation", "active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag", "get-permalink"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"], "food-post", ["restaurant", "rating", "latitude", "longitude", "meal-price"]], array());
                 }
             }
