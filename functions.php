@@ -205,6 +205,7 @@
             
             $args = array(
                 'post_type' => 'travel_logs',
+                'posts_per_page' => 5000,
                 'orderby' => 'meta_value_num',
                 'order' => 'ASC',
                 'meta_key' => 'active-date',
