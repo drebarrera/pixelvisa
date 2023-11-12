@@ -285,3 +285,53 @@ body {
 #photo-lightbox p {
     padding: 10px;
 }
+
+@media screen and (max-width: 768px) {
+    #title-section {
+        height: 250px;
+    }
+
+    #title-section h2 {
+        font-size: 30px;
+    }
+
+    #basic-info-section #dynamic-section {
+        min-width: 98%;
+        width: 98%;
+    }
+
+    #basic-info-section #dynamic-section #map {
+        padding: 0px;
+        width: 100%;
+    }
+
+    #basic-info-section #dynamic-section .panel-outer {
+        width: calc(100% - 30px);
+    }
+
+    #basic-info-section #dynamic-section .panel-outer h3 {
+        font-size: 18px;
+        text-align: left;
+        column-gap: 12px;
+    }
+
+    #basic-info-section #dynamic-section .card-outer {
+        width: 125px;
+        padding: 5px;
+        row-gap: 0px;
+    }
+
+    #basic-info-section #dynamic-section .card {
+        width: 125px;
+        height: 125px;
+    }
+
+    #basic-info-section #dynamic-section .card-outer h5 {
+        font-size: 16px;
+    }
+
+    .description-section {
+        font-size: 16px;
+    }
+
+}
