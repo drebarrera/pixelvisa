@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             marker_keys[0][location] = Object.keys(marker_keys[0]).length;
             marker_keys[1][Object.keys(marker_keys[1]).length] = location;
         }
-        if ((marker_data.length == 0) || (marker_data[marker_data.length - 1][0][0] != datum.coordinates[0]) || (marker_data[marker_data.length - 1][0][1] != datum.coordinates[1])) marker_data.push([datum.coordinates, location, datum["location-post-country-post-flag"], marker_keys[0][location]]);
+        if ((marker_data.length == 0) || (marker_data[marker_data.length - 1][0][0] != datum.coordinates[0]) || (marker_data[marker_data.length - 1][0][1] != datum.coordinates[1])) marker_data.push([datum.coordinates, location, datum["location-post-country-post-flag"], marker_keys[0][location], map_data[i]["geojson"]]);
     }
 
     // Create svg icon for location pin
@@ -164,24 +164,24 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create geodesic paths between markers
         var geojson = "";
         if (i > 0) {
-            console.log(marker_data[i]);
+            console.log(marker_datum);
             var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
-            if (map_data[i]["geojson"] != null && map_data[i]["geojson"] != "") {
-                geojson = JSON.parse(map_data[i]["geojson"]);
+            if (marker_datum[4] != null && marker_datum[4] != "") {
+                geojson = JSON.parse(marker_datum[4]);
                 var geojsonLayer = L.geoJSON(geojson["route"], {
                     style: {
                               fillColor: 'transparent',
                               color: geojson["color"],
                             }
                 }).addTo(map);
-                geojsonLayer.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
+                geojsonLayer.bindPopup("<b>" + marker_datum[4]["transportation"] + "</b>", { autoPan: false });
             } else {
                 var geodesic = L.geodesic([coords], {
                     weight: 2,
                     opacity: 1,
                     color: '#CE272A'
                 }).addTo(map);
-                geodesic.bindPopup("<b>" + map_data[i]["transportation"] + "</b>", { autoPan: false });
+                geodesic.bindPopup("<b>" + marker_datum[4]["transportation"] + "</b>", { autoPan: false });
             }
         }
     }
