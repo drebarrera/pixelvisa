@@ -106,7 +106,7 @@
         } else {
             $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
             if ( empty($template_name) ) $template_name = basename($template, '.php');
-            if ( $template_name === 'map' || $template_name == 'single-countries' || $template_name == 'single-cities' || $template_name == 'single-bites' ) {
+            if ( $template_name === 'map' || $template_name == 'single-countries' || $template_name == 'single-cities' ) {
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
                 wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
                 wp_enqueue_script('leaflet-geodesic-js', 'https://cdn.jsdelivr.net/npm/leaflet.geodesic', array('leaflet-js'), null, true);
@@ -250,8 +250,6 @@
             wp_localize_script('custom-leaflet', 'map_data', $map_data);
             if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
         }
-
-        if ($template_name == 'single-bites') {
     }
 
     add_action( 'init', 'register_post_types' );
