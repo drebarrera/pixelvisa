@@ -254,7 +254,7 @@
         if ($template_name == 'single-bites') {
             $map_context = null;
             if ($template_name == 'single-bites')
-            $map_context = array("coordinates" => [get_field("latitude"), get_field("longitude")]);
+            $map_context = array("coordinates" => [get_field("latitude"), get_field("longitude")], "restaurant" => get_field("restaurant"));
             if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
         }
     }
