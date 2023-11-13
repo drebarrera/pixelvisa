@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Create map
     let center = (map_data.length > 0) ? map_data[map_data.length - 1].coordinates : [0, 0];
-    let zoom = (map_data.length > 0) ? 6 : 2;
+    let zoom = (map_data.length > 0) ? 4 : 2;
     var map = L.map('map', {center: center, zoom: zoom, attributionControl: false, minZoom: 2});
 
     // Adjust attribution on bottom left
