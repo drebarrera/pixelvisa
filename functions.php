@@ -183,7 +183,7 @@
     }
 
     function image_array($id, $size) {
-        echo wp_get_attachment_image_src($id, $size);
+        echo $id;
         return wp_get_attachment_image_src($id, $size)[0];
     }
 
