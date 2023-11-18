@@ -39,7 +39,7 @@
             $general_assets->the_post();
             $portrait = get_field("portrait-image");
             if ( !empty($portrait) ) $portrait_url = $portrait["url"];
-            echo image_array($portrait, "large");
+            echo image_array($portrait, "thumbnail");
             $travel_icon = get_field("icon-image");
             if ( !empty($travel_icon) ) $travel_icon_url = $travel_icon["url"];
             $biography = get_field("biography");
