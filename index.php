@@ -40,7 +40,9 @@
             $portrait = get_field("portrait-image");
             if ( !empty($portrait) ) $portrait_url = $portrait["url"];
             $test = wp_get_attachment_image_src($portrait["id"], 'medium');
-            echo count($test);
+            foreach ($test as $value) {
+                echo $value . "<br>";
+            }
             $travel_icon = get_field("icon-image");
             if ( !empty($travel_icon) ) $travel_icon_url = $travel_icon["url"];
             $biography = get_field("biography");
