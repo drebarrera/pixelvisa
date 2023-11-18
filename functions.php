@@ -183,6 +183,7 @@
     }
 
     function image_array($img, $size) {
+        if ($size == "small") $size = "thumbnail";
         return wp_get_attachment_image_src($img["id"], $size)[0];
     }
 
