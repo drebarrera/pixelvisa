@@ -38,11 +38,7 @@
         while ( $general_assets->have_posts() ) {
             $general_assets->the_post();
             $portrait = get_field("portrait-image");
-            if ( !empty($portrait) ) $portrait_url = $portrait["url"];
-            $test = wp_get_attachment_image_src($portrait["id"], 'medium');
-            foreach ($test as $value) {
-                echo $value . "<br>";
-            }
+            if ( !empty($portrait) ) $portrait_url = image_array($portrait["url"], "small");
             $travel_icon = get_field("icon-image");
             if ( !empty($travel_icon) ) $travel_icon_url = $travel_icon["url"];
             $biography = get_field("biography");

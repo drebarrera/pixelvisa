@@ -182,6 +182,10 @@
         return $text;
     }
 
+    function image_array($id, $size) {
+        return wp_get_attachment_image_src($id, $size)[0];
+    }
+
     function localize_map_data() {
         global $post;
         global $template;
