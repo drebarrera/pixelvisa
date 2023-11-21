@@ -9,7 +9,8 @@
             $photo = get_field("cover-photo");
             if ( !empty($photo) ) :
                 function toUSD($value) {
-                    $exchange_rate = get_data(["location-post", ["country-post", ["exchange-rate"]]], array())["country-post-exchange-rate"];
+                    echo get_data(["location-post", ["country-post", ["exchange-rate"]]], array())["location-post-country-post-exchange-rate"];
+                    $exchange_rate = get_data(["location-post", ["country-post", ["exchange-rate"]]], array())["location-post-country-post-exchange-rate"];
                     return round(floatval($value) / floatval($exchange_rate), 2);
                     
                 }
