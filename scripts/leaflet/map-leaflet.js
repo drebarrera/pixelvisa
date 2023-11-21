@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry_name.textContent = entry["food-restaurant"];
                 entry_type.innerHTML = food_svg + " Local Bite";
                 entry_button.textContent = "Taste " + entry["food-restaurant"];
-                entry_button.href = entry["experience-url"];
+                entry_button.href = entry["food-url"];
             } else {
                 entry_name.textContent = "Arrived in " + panel_data[datum]["city"];
                 entry_type.innerHTML = visit_svg + " Visit";
