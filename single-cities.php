@@ -193,7 +193,7 @@
                 $post_content = get_post_field('post_content', $post_id);
                 if ( !empty($post_content) ) {
                     echo '<section id="images-section" class="content section">
-                    <h3>CITY LANDSCAPE</h3>
+                    <h3>LANDSCAPE</h3>
                     <div id="media">';
                     $dom = new DOMDocument;
                     @$dom->loadHTML($post_content);
