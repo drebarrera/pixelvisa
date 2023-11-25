@@ -11,13 +11,9 @@ function select_region(region) {
     back_button_regions.style.display = "flex";
 
     const country_cards = document.getElementsByClassName("country-card");
-    var j = 0;
     for (let i = 0; i < country_cards.length; i++) {
         if (country_cards[i].dataset.region == region) {
-            setTimeout(function() {
-                country_cards[i].style.display = "flex";
-            }, j * 100);
-            j++;
+            country_cards[i].style.display = "flex";
         }
     };
 }
