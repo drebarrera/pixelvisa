@@ -8,7 +8,8 @@ get_header();
     <div class="content">
         <h2>Pixel Visa Destinations</h2>
         <h3 id="choose-identifier">Choose a Region</h3>
-        <div id="back-button" onclick="back_to_regions()">&larr; Back to Regions</div>
+        <div id="back-button-regions" class="button" onclick="back_to_regions()">&larr; Back to Regions</div>
+        <div id="back-button-countries" data-region="" class="button" onclick="back_to_countries(this.dataset.region)">&larr; Back to Countries</div>
         <div id="cards">
             <div class="card region-card" data-region="North and Central America" onclick="select_region(this.dataset.region);">
                 <div class="card-img-container">
@@ -62,12 +63,45 @@ get_header();
                     $data = get_data(["cover-photo", "country", "flag", "get-permalink"], array());
                     if ( !empty($data["cover-photo"]) ) {
                         $bg = "url('" . image_array($data["cover-photo"], "large") . "')";
-                        echo '<a class="card-a" href="' . $data["get-permalink"] . '"><div class="card country-card" data-region="' . $r . '">
-                                <div class="card-img-container" style="--bg: ' . $bg . ';">
+                        echo '<div class="card country-card" data-region="' . $r . '">
+                                <div class="card-img-container" data-country="' . $data["country"] . '" onclick="select_country(this.dataset.country, ' . "'" . $r . "'" . ');" style="--bg: ' . $bg . ';">
                             </div>
                             <p>' . $data["country"] . ' ' . $data["flag"] . '</p>
-                        </div></a>';
+                            <a class="card-a" href="' . $data["get-permalink"] . '"><div class="button">Explore ' . $data["country"] . '</div></a>
+                        </div>';
                     } 
+                }
+            }
+        }
+
+        $args = array(
+            'post_type' => 'cities',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC',
+            'meta_key' => 'rating',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'active-date',
+                    'compare' => '<=',
+                    'value' => $current_date,
+                    'type' => 'NUMERIC'
+                )
+            ),
+        );
+    
+        $latest_travel = new WP_Query( $args );
+        if ( $latest_travel->have_posts() ) {
+            while ( $latest_travel->have_posts() ) {
+                $latest_travel->the_post();
+                $data = get_data(["cover-photo", "location-en", "country-post", ["country", "flag"], "get-permalink"], array());
+                if ( !empty($data["cover-photo"]) ) {
+                    $bg = "url('" . image_array($data["cover-photo"], "large") . "')";
+                    echo '<a class="card-a" href="' . $data["get-permalink"] . '"><div class="card city-card" data-country="' . $data["country-post-country"] . '">
+                            <div class="card-img-container" style="--bg: ' . $bg . ';">
+                        </div>
+                        <p>' . $data["location-en"] . ' ' . $data["country-post-flag"] . '</p>
+                    </div></a>';
                 }
             }
         }

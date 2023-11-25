@@ -30,8 +30,13 @@
     margin-top: 4px;
 }
 
-#back-button {
+#back-button-regions, #back-button-countries {
     font-size: 18px;
+    display: none;
+}
+
+.button {
+    font-size: 16px;
     width: fit-content;
     height: fit-content;
     margin: 10px;
@@ -40,10 +45,9 @@
     border-radius: 5px;
     background-color: var(--red);
     cursor: pointer;
-    display: none;
 }
 
-#back-button:hover {
+.button:hover {
     color: black;
     background-color: white;
 }
@@ -96,10 +100,10 @@
     fill: white !important;
 }
 
-.country-card {
+.country-card, .city-card {
     display: none;
 }
 
-.country-card:hover .card-img-container {
+.card-img-container:hover {
     transform: scale(1.1);
 }
