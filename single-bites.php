@@ -91,6 +91,7 @@
                     </div>
                     <div id="dynamic-section">
                         <div id="map"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16694.945303285727!2d105.78514425009783!3d15.121773780489992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3114f97fb01469b9%3A0x8930b98226761ee8!2sAmor%20Cafe!5e0!3m2!1sen!2skh!4v1700881091713!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </section>
 <?php
                 $post_id = get_the_ID();
