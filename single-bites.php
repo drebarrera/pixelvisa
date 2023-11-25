@@ -91,7 +91,7 @@
                     </div>
                     <div id="dynamic-section">
                         <div id="map"></div>
-                        <iframe src="https://maps.app.goo.gl/cecxbFzUoMBDucvJA" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://maps.app.goo.gl/13fs6LohWStKX81JA" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </section>
 <?php
                 $post_id = get_the_ID();
