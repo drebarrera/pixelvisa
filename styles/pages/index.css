@@ -450,6 +450,12 @@ body {
     column-gap: 5px;
 }
 
+.place-inner {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
 #places-section .place .card {
     width: 200px;
     height: 200px;
@@ -674,12 +680,6 @@ body {
 
     .place-outer h4 svg {
         height: 20px;
-    }
-
-    .place-inner {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
     }
 
     #places-section .place .card-outer {
