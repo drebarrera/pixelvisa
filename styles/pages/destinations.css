@@ -1,0 +1,14 @@
+#destinations-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#destinations-section .content {
+    background-color: white;
+    max-width: 90%;
+    height: 500px;
+    background-color: var(--offwhite);
+    border-radius: 20px;
+}
