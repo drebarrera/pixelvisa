@@ -454,6 +454,7 @@ body {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    padding-bottom: 4px;
 }
 
 #places-section .place .card {
