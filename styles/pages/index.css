@@ -676,6 +676,12 @@ body {
         height: 20px;
     }
 
+    .place-inner {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
     #places-section .place .card-outer {
         width: 125px;
         padding: 5px;
