@@ -16,7 +16,7 @@ function select_region(region) {
         if (country_cards[i].dataset.region == region) {
             setTimeout(function() {
                 country_cards[i].style.display = "flex";
-            }, j * 250);
+            }, j * 100);
             j++;
         }
     };
