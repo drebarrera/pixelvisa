@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 65px 0px 25px 0px;
 }
 
 #destinations-section .content {
