@@ -67,7 +67,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add the GeoJSON layer to the map
         const geojsonLayer = L.geoJSON(data, {
             style: function(feature) {
+                console.log(map_context['ISO_A3']);
                 if (feature.properties.ISO_A3 === map_context['ISO_A3']) { 
+                    console.log(feature.properties.ISO_A3, 2);
                     return {
                       fillColor: 'transparent',
                       color: '#5A8859',
