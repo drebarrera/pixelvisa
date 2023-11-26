@@ -5,7 +5,7 @@ function select_region(region) {
     };
     
     const choose_identifier = document.getElementById("choose-identifier");
-    choose_identifier.textContent = "Choose a Country";
+    choose_identifier.textContent = "Choose a Country in " + region;
 
     const back_button_regions = document.getElementById("back-button-regions");
     back_button_regions.style.display = "flex";
@@ -43,7 +43,7 @@ function back_to_countries(region) {
     };
 
     const choose_identifier = document.getElementById("choose-identifier");
-    choose_identifier.textContent = "Choose a Region";
+    choose_identifier.textContent = "Choose a Country in " + region;
 
     const back_button_regions = document.getElementById("back-button-regions");
     back_button_regions.style.display = "flex";
@@ -59,14 +59,14 @@ function back_to_countries(region) {
     };
 }
 
-function select_country(country, region) {
+function select_country(country, region, flag) {
     const country_cards = document.getElementsByClassName("country-card");
     for (let i = 0; i < country_cards.length; i++) {
         country_cards[i].style.display = "none";
     };
 
     const choose_identifier = document.getElementById("choose-identifier");
-    choose_identifier.textContent = "Choose a City";
+    choose_identifier.textContent = "Choose a City in " + country + " " + flag;
 
     const back_button_regions = document.getElementById("back-button-regions");
     back_button_regions.style.display = "none";

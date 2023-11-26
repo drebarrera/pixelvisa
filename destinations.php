@@ -64,7 +64,7 @@ get_header();
                     if ( !empty($data["cover-photo"]) ) {
                         $bg = "url('" . image_array($data["cover-photo"], "large") . "')";
                         echo '<div class="card country-card" data-region="' . $r . '">
-                                <div class="card-img-container" data-country="' . $data["country"] . '" onclick="select_country(this.dataset.country, ' . "'" . $r . "'" . ');" style="--bg: ' . $bg . ';">
+                                <div class="card-img-container" data-country="' . $data["country"] . '" onclick="select_country(this.dataset.country, ' . "'" . $r . "'" . ', ' . "'" . $data["flag"] . "'" . ');" style="--bg: ' . $bg . ';">
                             </div>
                             <p>' . $data["country"] . ' ' . $data["flag"] . '</p>
                             <a class="card-a" href="' . $data["get-permalink"] . '"><div class="button">Explore ' . $data["country"] . '</div></a>
@@ -100,7 +100,7 @@ get_header();
                     echo '<a class="card-a" href="' . $data["get-permalink"] . '"><div class="card city-card" data-country="' . $data["country-post-country"] . '">
                             <div class="card-img-container" style="--bg: ' . $bg . ';">
                         </div>
-                        <p>' . $data["city"] . ' ' . $data["country-post-flag"] . '</p>
+                        <p>' . $data["city"] . '</p>
                     </div></a>';
                 }
             }
