@@ -61,43 +61,60 @@ document.addEventListener("DOMContentLoaded", function() {
     let bounds = L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180));
     map.setMaxBounds(bounds);
 
-    console.log(1);
-    fetch('http://pixelvisa.net/wp-content/themes/pixel-visa/assets/geojson/countries.geojson')
-    .then(response => response.json())
-    .then(data => {
-        // Add the GeoJSON layer to the map
-        const geojsonLayer = L.geoJSON(data, {
-            style: function(feature) {
-                console.log(map_context['ISO_A3']);
-                if (feature.properties.ISO_A3 === map_context['ISO_A3']) { 
-                    console.log(feature.properties.ISO_A3, 2);
-                    return {
-                      fillColor: 'transparent',
-                      color: '#5A8859',
-                      weight: 2
-                    };
-                  } else {
-                    return {
-                      fillColor: 'transparent',
-                      color: 'transparent',
-                    };
-                  }
-            }
-        }).addTo(map);
+    function fetchGeoJSON(url, retryCount = 3) {
+        return fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('Error fetching GeoJSON:', error);
+                if (retryCount > 0) {
+                    console.log(`Retrying... (${retryCount} attempts remaining)`);
+                    return fetchGeoJSON(url, retryCount - 1);
+                } else {
+                    console.error('Retry limit reached. Unable to fetch GeoJSON.');
+                    throw error; // Propagate the error if retries are exhausted
+                }
+            });
+    }
 
-        // Zoom into a specific country
-        geojsonLayer.eachLayer(function(layer) {
-            if (layer.feature.properties.ISO_A3 === map_context['ISO_A3']) {
-                
-                map.fitBounds(layer.getBounds(), {
-                    padding: [0,0],
-                    maxZoom: 18,
-                    animate: false
-                });
-            }
+    fetchGeoJSON('http://pixelvisa.net/wp-content/themes/pixel-visa/assets/geojson/countries.geojson')
+        .then(data => {
+            const geojsonLayer = L.geoJSON(data, {
+                style: function(feature) {
+                    if (feature.properties.ISO_A3 === map_context['ISO_A3']) {
+                        return {
+                            fillColor: 'transparent',
+                            color: '#5A8859',
+                            weight: 2
+                        };
+                    } else {
+                        return {
+                            fillColor: 'transparent',
+                            color: 'transparent',
+                        };
+                    }
+                }
+            }).addTo(map);
+
+            // Zoom into a specific country
+            geojsonLayer.eachLayer(function(layer) {
+                if (layer.feature.properties.ISO_A3 === map_context['ISO_A3']) {
+                    
+                    map.fitBounds(layer.getBounds(), {
+                        padding: [0,0],
+                        maxZoom: 18,
+                        animate: false
+                    });
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Unable to fetch GeoJSON:', error);
         });
-    })
-    .catch(error => console.error('Error fetching GeoJSON:', error));
 
     // Create svg icon for location pin
     const location_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="location_icon"><path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 7.469 16.812 12 24c4.531-7.188 8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="#FF9505"/><circle cx="12" cy="8" r="3" fill="white"/></svg>';
