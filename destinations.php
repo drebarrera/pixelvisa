@@ -94,13 +94,13 @@ get_header();
         if ( $latest_travel->have_posts() ) {
             while ( $latest_travel->have_posts() ) {
                 $latest_travel->the_post();
-                $data = get_data(["cover-photo", "location-en", "country-post", ["country", "flag"], "get-permalink"], array());
+                $data = get_data(["cover-photo", "city", "country-post", ["country", "flag"], "get-permalink"], array());
                 if ( !empty($data["cover-photo"]) ) {
                     $bg = "url('" . image_array($data["cover-photo"], "large") . "')";
                     echo '<a class="card-a" href="' . $data["get-permalink"] . '"><div class="card city-card" data-country="' . $data["country-post-country"] . '">
                             <div class="card-img-container" style="--bg: ' . $bg . ';">
                         </div>
-                        <p>' . $data["location-en"] . ' ' . $data["country-post-flag"] . '</p>
+                        <p>' . $data["city"] . ' ' . $data["country-post-flag"] . '</p>
                     </div></a>';
                 }
             }
