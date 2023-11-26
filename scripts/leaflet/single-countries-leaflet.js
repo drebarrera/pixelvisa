@@ -178,14 +178,14 @@ document.addEventListener("DOMContentLoaded", function() {
             last_key = marker_data[i][3].toString();
         }
         // Create geodesic paths between markers
-        if (i < marker_data.length - 1) {
+        /*if (i < marker_data.length - 1) {
             var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i + 1][0][0], marker_data[i + 1][0][1]]]
             var geodesic = L.geodesic([coords], {
                 weight: 2,
                 opacity: 1,
                 color: '#CE272A'
             }).addTo(map);
-        }
+        }*/
     }
 
     // Add data to panel
