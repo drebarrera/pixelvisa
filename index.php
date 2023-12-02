@@ -135,7 +135,7 @@
                     while ( $latest_travel->have_posts() ) {
                         $latest_travel->the_post();
                         $data = get_data(["cover-photo", "dish", "restaurant", "get-permalink", "location-post", ["country-post", ["flag"]]], array());
-                        
+                        echo $data["restaurant"];
                         if ( !empty($data["cover-photo"]) ) {
                             $bg = "url('" . $data["cover-photo"]["url"] . "')";
                             echo '<a href="' . $data["get-permalink"] . '" class="card-outer" >
