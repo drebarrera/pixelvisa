@@ -116,6 +116,12 @@
                     'meta_key' => 'rating',
                     'meta_query' => array(
                         array(
+                            'key' => 'active-date',
+                            'compare' => '<=',
+                            'value' => $current_date,
+                            'type' => 'NUMERIC'
+                        ),
+                        array(
                             'key' => 'rating',
                             'compare' => '>=',
                             'value' => 4.0,
