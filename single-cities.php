@@ -110,12 +110,6 @@
                                     'value' => $current_date,
                                     'type' => 'NUMERIC'
                                 ),
-                                array(
-                                    'key' => 'location-post',
-                                    'value' => get_the_ID(),
-                                    'compare' => '=',
-                                    'type' => 'NUMERIC'
-                                ),
                             )
                         );
                     
@@ -162,9 +156,10 @@
                                     'type' => 'NUMERIC'
                                 ),
                                 array(
-                                    'key' => 'location-post',
-                                    'compare' => '==',
-                                    'value' => $post,
+                                    'key' => 'location-post', // Adjust the key to your actual meta key
+                                    'value' => serialize(get_post()), // Serialize the post object
+                                    'compare' => '=', // Change the comparison as needed
+                                    'type' => 'BINARY' // Use BINARY type for serialized data
                                 ),
                             )
                         );
