@@ -110,6 +110,12 @@
                                     'value' => $current_date,
                                     'type' => 'NUMERIC'
                                 ),
+                                array(
+                                    'key' => 'location-post',
+                                    'value' => get_the_ID(),
+                                    'compare' => '=',
+                                    'type' => 'NUMERIC'
+                                ),
                             )
                         );
                     
