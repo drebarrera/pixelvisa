@@ -144,6 +144,7 @@
 
                         $args = array(
                             'post_type' => 'bites',
+                            'posts_per_page' => 12,
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
