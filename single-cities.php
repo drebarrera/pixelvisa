@@ -144,7 +144,7 @@
 
                         $args = array(
                             'post_type' => 'bites',
-                            'posts_per_page' => 2000,
+                            'posts_per_page' => 12,
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
@@ -154,6 +154,11 @@
                                     'compare' => '<=',
                                     'value' => $current_date,
                                     'type' => 'NUMERIC'
+                                ),
+                                array(
+                                    'key' => 'location-post',
+                                    'compare' => '==',
+                                    'value' => $post,
                                 ),
                             )
                         );
