@@ -76,6 +76,7 @@ get_header();
 
         $args = array(
             'post_type' => 'cities',
+            'posts_per_page' => 40,
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
             'meta_key' => 'rating',
