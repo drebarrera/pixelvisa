@@ -2,12 +2,12 @@ function scrollIntoParentView(element, parent) {
     const elementRect = element.getBoundingClientRect();
     const parentRect = parent.getBoundingClientRect();
     console.log(elementRect.top, parentRect.top, parent.scrollTop);
-    /*if (elementRect.top < parentRect.top) {
+    if (elementRect.top < parentRect.top) {
         parent.scrollTop -= (parentRect.top - elementRect.top);
-    } else if (elementRect.bottom > parentRect.bottom) {
-        parent.scrollTop += (elementRect.bottom - parentRect.bottom);
-    }*/
-    parent.scrollTop = elementRect.top;
+    } else if (elementRect.top > parentRect.top) {
+        parent.scrollTop += (elementRect.top - parentRect.top);
+    }
+    //parent.scrollTop = elementRect.top;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
