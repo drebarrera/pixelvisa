@@ -1,7 +1,7 @@
 function scrollIntoParentView(element, parent) {
     const elementRect = element.getBoundingClientRect();
     const parentRect = parent.getBoundingClientRect();
-    alert(elementRect.top, parentRect.top, parent.scrollTop);
+    console.log(elementRect.top, parentRect.top, parent.scrollTop);
     if (elementRect.top < parentRect.top) {
         parent.scrollTop -= (parentRect.top - elementRect.top);
     } else if (elementRect.bottom > parentRect.bottom) {
