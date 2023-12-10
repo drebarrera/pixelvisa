@@ -55,6 +55,7 @@
 
                         $args = array(
                             'post_type' => 'cities',
+                            'posts_per_page' => 100000,
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
@@ -99,6 +100,7 @@
 
                         $args = array(
                             'post_type' => 'experiences',
+                            'posts_per_page' => 100000,
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
@@ -144,6 +146,7 @@
 
                         $args = array(
                             'post_type' => 'bites',
+                            'posts_per_page' => 100000,
                             'orderby' => 'meta_value_num',
                             'order' => 'DESC',
                             'meta_key' => 'rating',
