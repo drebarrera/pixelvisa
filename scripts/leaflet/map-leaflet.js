@@ -160,17 +160,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 scrollIntoParentView(document.querySelectorAll('.location-entry[data-markerid="' + marker_data[i][3].toString() + '"]')[0], panel);
             });
 
-            map.on('zoomend', function () { 
-                console.log(map.getZoom());
-                if (map.getZoom() <= 4) {
-                    console.log("z", 0);
-                    marker.setOpacity(0);
-                } else {
-                    marker.setOpacity(1);
-                    console.log("z", 1);
-                }
-            });
-
             last_key = marker_data[i][3].toString();
         }
 
@@ -349,4 +338,26 @@ document.addEventListener("DOMContentLoaded", function() {
         element.classList.add('location-entry-click');
         scrollIntoParentView(element, panel);
     })
+
+    map.on('zoomend', function () { 
+        console.log(map.getZoom());
+        var mark_types = ["location", "bites"];
+        if (map.getZoom() <= 5) {
+            console.log("z", 0);
+            for (let i = 0; i < mark_types.length; i++) {
+                var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
+                for (let j = 0; j < marks.length; j++) {
+                    marks.setOpacity(0);
+                }
+            }
+        } else {
+            for (let i = 0; i < mark_types.length; i++) {
+                var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
+                for (let j = 0; j < marks.length; j++) {
+                    marks.setOpacity(1);
+                }
+            }
+            console.log("z", 1);
+        }
+    });
 });
