@@ -347,13 +347,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     marks[j].style.display = "none";
                 }
             }
-            if (map.getZoom() == 5) {
-                var paths = document.getElementsByClassName("leaflet-interactive");
-                for (let i = 0; i < paths.length; i++) {
-                    paths[i].dataset.pathcolor = window.getComputedStyle(paths[i]).getPropertyValue("stroke");
-                    paths[i].style.stroke = "#CE272A";
-                    paths[i].style.strokeWidth = "2px";
+            var paths = document.getElementsByClassName("leaflet-interactive");
+            for (let i = 0; i < paths.length; i++) {
+                if (paths[i].dataset.pathcolor == undefined) {
+                    var strokeColor = window.getComputedStyle(paths[i]).getPropertyValue("stroke");
+                    if (strokeColor == undefined) paths[i].dataset.pathcolor = "";
+                    else paths[i].dataset.pathcolor = strokeColor;
                 }
+                paths[i].style.stroke = "#CE272A";
+                paths[i].style.strokeWidth = "2px";
             }
         } else {
             for (let i = 0; i < mark_types.length; i++) {
