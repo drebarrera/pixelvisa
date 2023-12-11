@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             map.on('zoomend', function () { 
                 console.log(map.getZoom());
-                if (map.getZoom() >= 10) {
+                if (map.getZoom() <= 4) {
                     console.log("z", 0);
                     marker.setOpacity(0);
                 } else {
