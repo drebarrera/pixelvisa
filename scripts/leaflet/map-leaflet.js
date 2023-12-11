@@ -347,6 +347,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     marks[j].style.display = "none";
                 }
             }
+            var paths = document.getElementsByClassName("leaflet-interactive");
+            for (let i = 0; i < paths.length; i++) {
+                paths[i].dataset.pathcolor = paths[i].stroke;
+                console.log(paths[i].stroke);
+            }
         } else {
             for (let i = 0; i < mark_types.length; i++) {
                 var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
