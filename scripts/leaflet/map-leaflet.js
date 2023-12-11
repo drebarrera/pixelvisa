@@ -160,6 +160,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 scrollIntoParentView(document.querySelectorAll('.location-entry[data-markerid="' + marker_data[i][3].toString() + '"]')[0], panel);
             });
 
+            map.on('zoomend', function () { 
+                if (map.getZoom() >= 10) marker.setOpacity(0);
+                else marker.setOpacity(1);
+            });
+
             last_key = marker_data[i][3].toString();
         }
 
