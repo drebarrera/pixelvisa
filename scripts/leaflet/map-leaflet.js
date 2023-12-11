@@ -161,8 +161,14 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             map.on('zoomend', function () { 
-                if (map.getZoom() >= 10) marker.setOpacity(0);
-                else marker.setOpacity(1);
+                console.log(map.getZoom());
+                if (map.getZoom() >= 10) {
+                    console.log("z", 0);
+                    marker.setOpacity(0);
+                } else {
+                    marker.setOpacity(1);
+                    console.log("z", 1);
+                }
             });
 
             last_key = marker_data[i][3].toString();
