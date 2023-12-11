@@ -1,7 +1,6 @@
 function scrollIntoParentView(element, parent) {
     const elementRect = element.getBoundingClientRect();
     const parentRect = parent.getBoundingClientRect();
-    console.log(elementRect.top, parentRect.top, parent.scrollTop);
     if (elementRect.top < parentRect.top) {
         parent.scrollTop -= (parentRect.top - elementRect.top);
     } else if (elementRect.top > parentRect.top) {
@@ -340,10 +339,8 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     map.on('zoomend', function () { 
-        console.log(map.getZoom());
         var mark_types = ["location", "bites"];
         if (map.getZoom() <= 5) {
-            console.log("z", 0);
             for (let i = 0; i < mark_types.length; i++) {
                 var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
                 for (let j = 0; j < marks.length; j++) {
@@ -357,7 +354,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     marks[j].style.display = "block";
                 }
             }
-            console.log("z", 1);
         }
     });
 });
