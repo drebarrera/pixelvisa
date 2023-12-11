@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     style: {
                               fillColor: 'transparent',
                               color: geojson["color"],
+                              weight: 2,
                             }
                 }).addTo(map);
                 geojsonLayer.bindPopup("<b>" + marker_datum[5] + "</b>", { autoPan: false });
