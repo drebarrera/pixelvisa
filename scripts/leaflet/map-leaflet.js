@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     style: {
                               fillColor: 'transparent',
                               color: geojson["color"],
-                              weight: 2,
                             }
                 }).addTo(map);
                 geojsonLayer.bindPopup("<b>" + marker_datum[5] + "</b>", { autoPan: false });
@@ -352,6 +351,7 @@ document.addEventListener("DOMContentLoaded", function() {
             for (let i = 0; i < paths.length; i++) {
                 paths[i].dataset.pathcolor = window.getComputedStyle(paths[i]).getPropertyValue("stroke");
                 paths[i].style.stroke = "#CE272A";
+                paths[i].style.strokeWidth = "2px";
             }
         } else {
             for (let i = 0; i < mark_types.length; i++) {
@@ -363,6 +363,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var paths = document.getElementsByClassName("leaflet-interactive");
             for (let i = 0; i < paths.length; i++) {
                 paths[i].style.stroke = paths[i].dataset.pathcolor;
+                paths[i].style.strokeWidth = "3px";
             }
         }
     });
