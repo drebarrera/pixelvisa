@@ -349,8 +349,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             var paths = document.getElementsByClassName("leaflet-interactive");
             for (let i = 0; i < paths.length; i++) {
-                paths[i].dataset.pathcolor = paths[i].style.stroke;
-                console.log(paths[i].style.stroke);
+                paths[i].dataset.pathcolor = window.getComputedStyle(paths[i]).getPropertyValue("stroke");
+                console.log(paths[i].dataset.pathcolor);
+                paths[i].style.stroke = "#CE272A";
             }
         } else {
             for (let i = 0; i < mark_types.length; i++) {
