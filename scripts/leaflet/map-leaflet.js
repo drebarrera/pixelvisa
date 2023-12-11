@@ -351,7 +351,6 @@ document.addEventListener("DOMContentLoaded", function() {
             var paths = document.getElementsByClassName("leaflet-interactive");
             for (let i = 0; i < paths.length; i++) {
                 paths[i].dataset.pathcolor = window.getComputedStyle(paths[i]).getPropertyValue("stroke");
-                console.log(paths[i].dataset.pathcolor);
                 paths[i].style.stroke = "#CE272A";
             }
         } else {
@@ -360,6 +359,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 for (let j = 0; j < marks.length; j++) {
                     marks[j].style.display = "block";
                 }
+            }
+            var paths = document.getElementsByClassName("leaflet-interactive");
+            for (let i = 0; i < paths.length; i++) {
+                paths[i].style.stroke = paths[i].dataset.pathcolor;
             }
         }
     });
