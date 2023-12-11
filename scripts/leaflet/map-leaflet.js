@@ -347,14 +347,14 @@ document.addEventListener("DOMContentLoaded", function() {
             for (let i = 0; i < mark_types.length; i++) {
                 var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
                 for (let j = 0; j < marks.length; j++) {
-                    marks.style.display = "none";
+                    marks[j].setOpacity(0);
                 }
             }
         } else {
             for (let i = 0; i < mark_types.length; i++) {
                 var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
                 for (let j = 0; j < marks.length; j++) {
-                    marks.style.display = "block";
+                    marks[j].setOpacity(1);
                 }
             }
             console.log("z", 1);
