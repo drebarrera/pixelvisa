@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 var geodesic = L.geodesic([coords], {
                     weight: 2,
-                    opacity: 1,
+                    opacity: 0.5,
                     color: '#CE272A'
                 }).addTo(map);
                 geodesic.bindPopup("<b>" + marker_datum[5] + "</b>", { autoPan: false });
