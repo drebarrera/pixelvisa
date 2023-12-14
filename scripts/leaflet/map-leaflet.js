@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
         marker_datum = marker_data[i];
         // If marker has not already been placed
         if ( !(marker_data[i][3] in markers_placed) ) {
+            console.log(marker_datum[0]);
             markers_placed.push(marker_data[i][3]);
             marker = L.marker(marker_datum[0], {zIndexOffset: 20000, icon: location_icon}).addTo(map);
             marker._leaflet_id = marker_data[i][3].toString();
