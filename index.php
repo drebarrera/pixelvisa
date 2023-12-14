@@ -92,6 +92,7 @@
                             echo '<a href="' . $data["get-permalink"] . '" class="card-outer">
                                 <div class="card" style="--bg: ' . $bg . ';"></div>
                                 <h5><span>Explore </span>' . $data["country"] . ' ' . $data["flag"] . '</h5>
+                                <p>Test</p>
                             </a>';
                         } 
                     }
