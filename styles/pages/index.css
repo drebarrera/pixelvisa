@@ -514,6 +514,7 @@ body {
     font-size: 17px;
     text-align: left;
     overflow: hidden;
+    margin-top: 5px;
 }
 
 #places-section .place .card-outer:hover {
