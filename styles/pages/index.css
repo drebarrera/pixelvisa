@@ -494,9 +494,9 @@ body {
     font-size: 17px;
     font-weight: 400;
     line-height: 1.25;
-    border-radius: 5px;
     text-align: left;
     font-family: Inter;
+    margin-top: 20px;
 }
 
 #places-section .place .card-outer:hover .card {
@@ -506,6 +506,12 @@ body {
 
 #places-section .place .card-outer h5 span {
     display: none;
+}
+
+#places-section .place .card-outer p {
+    width: 90%;
+    font-size: 15px;
+    text-align: left;
 }
 
 #places-section .place .card-outer:hover {
@@ -554,7 +560,6 @@ body {
     font-size: 20px;
     z-index: 0;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
-    margin-bottom: 20px;
 }
 
 #places-section #locations .card .location-name {
