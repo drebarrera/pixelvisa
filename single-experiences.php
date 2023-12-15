@@ -85,9 +85,8 @@
                             } else if ($header == "DISTANCE FROM CITY") {
                                     if (!empty($value)) {
                                         $value = explode(" ", $value);
-                                        $value[0] = $value[0] . " km"
+                                        $value[0] = strval($value[0]) . " km";
                                         if (count($value) > 1) {
-                                            $descriptor = $value[1];
                                             $value[1] = "(" . $value[1] . ")";
                                             $value = implode(" ", $value);   
                                         }
