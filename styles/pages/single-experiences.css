@@ -36,7 +36,7 @@ body {
 }
 
 .section h4 {
-    color: var(--green);
+    color: var(--blue);
     font-weight: 600;
     font-size: 20px;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 #basic-info-section #dynamic-section .card-outer:hover {
-    background-color: var(--green);
+    background-color: var(--blue);
     color: white;
 }
 
@@ -243,7 +243,7 @@ body {
 
 .description-section .subtopic {
     margin-top: 8px;
-    color: var(--green);
+    color: var(--blue);
     font-weight: 600;
     font-size: 16px;
 }
