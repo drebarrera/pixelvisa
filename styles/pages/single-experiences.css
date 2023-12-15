@@ -70,6 +70,11 @@ body {
     line-height: 1.5;
 }
 
+#basic-info-section a {
+    color: var(--red);
+    text-decoration: none;
+}
+
 #basic-info-section #dynamic-section {
     width: 60%;
     min-width: 400px;
