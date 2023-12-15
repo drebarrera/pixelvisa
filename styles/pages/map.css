@@ -156,9 +156,9 @@ body {
     text-decoration: none;
 }
 
-.location-entry a:hover {
+/*.location-entry a:hover {
     background-color: var(--charcoal);
-}
+}*/
 
 .entry-item {
     display: flex;
