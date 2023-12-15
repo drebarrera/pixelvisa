@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     map.on('zoomend', function () { 
-        var mark_types = ["location", "bites"];
+        var mark_types = ["location", "bites", "experience"];
         if (map.getZoom() <= 5) {
             for (let i = 0; i < mark_types.length; i++) {
                 var marks = document.getElementsByClassName("leaflet-marker-icon " + mark_types[i] + " leaflet-zoom-animated leaflet-interactive");
