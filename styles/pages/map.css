@@ -151,7 +151,6 @@ body {
 .location-entry a {
     font-family: Inter;
     font-weight: 400;
-    color: var(--red);;
     font-size: 14px;
     text-decoration: none;
 }
