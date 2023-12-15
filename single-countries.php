@@ -181,7 +181,7 @@
                                 if ( !empty($data['cover-photo']) ) {
                                     $bg = "url('" . $data["cover-photo"]["url"] . "')";
                                     echo '<a href="' . $data["get-permalink"] . '" class="card-outer" style="--bg: ' . $bg . '"><div class="card"></div>
-                                    <h5>' . $data["dish"] . '</h5>
+                                    <h5>' . $data["restaurant"] . '</h5>
                                     <p>' . $data["location-post-location-en"] . '</p>
                                     </a>';
                                 }
