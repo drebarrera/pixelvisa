@@ -22,7 +22,7 @@
                     <div id="info-panel">
 <?php
                         echo '<h3>' . strtoupper(get_field("city")) . ' AT A GLANCE</h3>';
-                        $location_keys = array("RESTAURANT" => ["restaurant"], "CITY" => ["location-post", ["location-en"]], "CUISINE" => "cuisine", "FEATURED DISH" => "dish", "AVERAGE MEAL PRICE" => ["meal-price", "expensiveness"], "RATING" => "rating", "WEBSITE" => "website", "ADDRESS" => "address", "HOURS" => "hours", "LAST UPDATED" => "active-date");
+                        $location_keys = array("EXPERIENCE" => ["experience"], "CITY" => ["location-post", ["location-en"]], "DISTANCE FROM CITY" => ["distance", "distance-descriptor"], "COST" => ["cost", "expensiveness"], "RATING" => "rating", "WEBSITE" => "website", "ADDRESS" => "address", "HOURS" => "hours", "LAST UPDATED" => "active-date");
                         foreach ($location_keys as $header => $field) {
                             $value = [];
                             if (is_array($field)) {
@@ -69,7 +69,7 @@
                             if ($header == "LAST UPDATED") {
                                 $value = preg_replace('/(\d{4})(\d{2})(\d{2})/', '$3/$2/$1', $value);
                             } else if ($header == "WEBSITE") {
-                                $value = '<a href="' . $value . '">' . $value . '</a>';
+                                if (!empty($value)) $value = '<a href="' . $value . '">' . $value . '</a>';
                             } else if ($header == "AVERAGE MEAL PRICE") {
                                 if (!empty($value)) {
                                     $value = explode(" ", $value);
