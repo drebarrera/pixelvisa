@@ -70,7 +70,7 @@
                                 $value = preg_replace('/(\d{4})(\d{2})(\d{2})/', '$3/$2/$1', $value);
                             } else if ($header == "WEBSITE") {
                                 if (!empty($value)) $value = '<a href="' . $value . '">' . $value . '</a>';
-                            } else if ($header == "AVERAGE MEAL PRICE") {
+                            } else if ($header == "COST") {
                                 if (!empty($value)) {
                                     $value = explode(" ", $value);
                                     $cost = $value[0];
