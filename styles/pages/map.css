@@ -177,7 +177,7 @@ body {
 }
 
 .location-button {
-    background-color: var(--green);
+    background-color: var(--orange);
 }
 
 .experience-button {
@@ -219,7 +219,6 @@ body {
     margin-top: 4px;
     color: white;
     border-radius: 5px;
-    background-color: var(--red);
     text-decoration: none;
 }
 
