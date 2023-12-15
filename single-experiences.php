@@ -117,7 +117,7 @@
                     echo '</div>
                     </section>';
                 }
-                $content = ["ABOUT THE ESTABLISHMENT" => "description"];
+                $content = ["ABOUT THE ADVENTURE" => "description"];
                 foreach ($content as $title => $field) {
                     if (is_array($field)) {
                         $data = [];
