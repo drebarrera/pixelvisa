@@ -517,10 +517,10 @@ body {
     margin-top: 5px;
 }
 
-#places-section .place .card-outer:hover {
+/*#places-section .place .card-outer:hover {
     background-color: var(--place-color);
     color: white;
-}
+}*/
 
 #places-section .content {
     flex-direction: column;
