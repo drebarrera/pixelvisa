@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Bind marker click event
             marker.on('click', function(e) {
-                map.flyTo(e.latlng, 12);
+                map.flyTo(e.latlng, 14);
                 let clicked_elements = document.querySelectorAll('.location-entry-click');
                 clicked_elements.forEach(element => {
                     element.classList.remove('location-entry-click');
