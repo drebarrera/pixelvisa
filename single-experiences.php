@@ -16,7 +16,7 @@
                 $url = "url('" . $photo["url"] . "')";
 ?>
                 <section id="title-section" style="--bg: <?php echo $url ?>;">
-                    <h2><?php echo strtoupper(get_field("restaurant")); ?></h2>
+                    <h2><?php echo strtoupper(get_field("experience")); ?></h2>
                 </section>
                 <section id="basic-info-section" class="content section">
                     <div id="info-panel">
