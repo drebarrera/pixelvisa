@@ -255,25 +255,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry_type.innerHTML = video_svg + " " + entry["video-type"];
                 entry_button.textContent = "Watch the " + entry["video-type"];
                 entry_button.href = entry["video-url"];
-                entry_button.classList.append("video-button");
+                entry_button.classList.add("video-button");
             } else if (entry["experience-title"]) {
                 entry_name.textContent = entry["experience-title"];
                 entry_type.innerHTML = experience_svg + " Experience";
                 entry_button.textContent = "Experience " + entry["experience-title"];
                 entry_button.href = entry["experience-url"];
-                entry_button.classList.append("experience-button");
+                entry_button.classList.add("experience-button");
             } else if (entry["food-restaurant"]) {
                 entry_name.textContent = entry["food-restaurant"];
                 entry_type.innerHTML = food_svg + " Local Bite";
                 entry_button.textContent = "Taste " + entry["food-restaurant"];
                 entry_button.href = entry["food-url"];
-                entry_button.classList.append("bites-button");
+                entry_button.classList.add("bites-button");
             } else {
                 entry_name.textContent = "Arrived in " + panel_data[datum]["city"];
                 entry_type.innerHTML = visit_svg + " Visit";
                 entry_button.textContent = "All About " + panel_data[datum]["city"];
                 entry_button.href = panel_data[datum]["location-url"];
-                entry_button.classList.append("location-button");
+                entry_button.classList.add("location-button");
             }
             entry_item.appendChild(entry_type);
             entry_item.appendChild(entry_name);
