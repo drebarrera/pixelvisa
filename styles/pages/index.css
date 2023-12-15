@@ -510,7 +510,7 @@ body {
 
 #places-section .place .card-outer p {
     width: 90%;
-    height: 35px;
+    height: fit-content;
     font-size: 15px;
     text-align: left;
     overflow: hidden;
