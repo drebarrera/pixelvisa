@@ -153,7 +153,7 @@ body {
     padding: 0px 5px;
 }
 
-#map-section .content #panel-control .filter-button:hover {
+#map-section .content #panel-control .filter-button:not(.filter-button-toggled):hover {
     background-color: var(--color);
     color: white;
     fill: white;
@@ -163,6 +163,12 @@ body {
     background-color: var(--color);
     color: white;
     fill: white;
+}
+
+#map-section .content #panel-control .filter-button-toggled:hover {
+    background-color: var(--offwhite);
+    color: black;
+    fill: black;
 }
 
 #map-section .content #panel {
