@@ -141,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function() {
             markers[marker_data[i][3].toString()] = marker;
             // Bind popup to marker
             marker.bindPopup("<b>" + visit_svg + marker_datum[1] + " " + marker_datum[2] + "</b>", { autoPan: false }).openPopup();
-            markerElement.dataset.entrytype = "location";
 
             // Bind marker click event
             marker.on('click', function(e) {
@@ -216,16 +215,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     e_marker.getElement().dataset.entrykey = entry["entry-key"];
                     e_markers[entry["entry-key"]] = e_marker;
                     e_marker.bindPopup("<b style='display: flex; justify-content: center; align-items: center; column-gap: 5px;'>" + video_svg + " " + entry["video-title"] + "</b>", { autoPan: false });
+                    entry_item.dataset.entrytype = "video";
                 } else if (entry["experience-title"]) {
                     e_marker = L.marker(entry["experience-coordinates"], {icon: experience_icon}).addTo(map);
                     e_marker.getElement().dataset.entrykey = entry["entry-key"];
                     e_markers[entry["entry-key"]] = e_marker;
                     e_marker.bindPopup("<b style='display: flex; justify-content: center; align-items: center; column-gap: 5px;'>" + experience_svg + " " + entry["experience-title"] + "</b>", { autoPan: false });
+                    entry_item.dataset.entrytype = "experience";
                 } else if (entry["food-restaurant"]) {
                     e_marker = L.marker(entry["food-coordinates"], {icon: bites_icon}).addTo(map);
                     e_marker.getElement().dataset.entrykey = entry["entry-key"];
                     e_markers[entry["entry-key"]] = e_marker;
                     e_marker.bindPopup("<b style='display: flex; justify-content: center; align-items: center; column-gap: 5px;'>" + food_svg + " " + entry["food-restaurant"] + "</b>", { autoPan: false });
+                    entry_item.dataset.entrytype = "bites";
                 }
                 e_marker.on('click', function(e) {
                     map.flyTo(e.latlng, 16);
