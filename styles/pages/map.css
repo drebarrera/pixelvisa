@@ -121,8 +121,10 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    row-gap: 20px;
+    row-gap: 10px;
+    column-gap: 20px;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 #map-section .content #panel-control .filter-button {
@@ -131,6 +133,8 @@ body {
     border-radius: 10px;
     border: 2px solid white;
     background-color: white;
+    cursor: pointer;
+    font-family: Inter;
 }
 
 #map-section .content #panel-control .filter-button:hover {
