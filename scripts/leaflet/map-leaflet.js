@@ -141,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function() {
             markers[marker_data[i][3].toString()] = marker;
             // Bind popup to marker
             marker.bindPopup("<b>" + visit_svg + marker_datum[1] + " " + marker_datum[2] + "</b>", { autoPan: false }).openPopup();
-            
+            marker.dataset.entrytype = "location";
+
             // Bind marker click event
             marker.on('click', function(e) {
                 map.flyTo(e.latlng, 14);
