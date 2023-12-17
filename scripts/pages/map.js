@@ -29,9 +29,9 @@ function search(button, input) {
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
-    search(null, document.getElementById('country-search'));
+    search(document.getElementById('country-search'), document.querySelector('country-search input'));
 });
 
 document.getElementById('city-search').addEventListener('input', function() {
-    search(null, document.getElementById('city-search'));
+    search(document.getElementById('country-search'), document.querySelector('country-search input'));
 });
