@@ -31,7 +31,7 @@ get_header();
         <div id="map" style="--bg: url(' <?php echo $travel_icon_url ?> ')"></div>
         <div id="panel-outer">
             <div id="panel-control">
-                <div class="filter-button">id="search" style="--color: var(--orange);">City: <input type="text"></input></div>
+                <div class="filter-button" id="search" style="--color: var(--orange);">City: <input type="text"></input></div>
                 <div class="filter-button" style="--color: var(--blue);">Experiences</div>
                 <div class="filter-button" style="--color: var(--red);">Food</div>
             </div>
