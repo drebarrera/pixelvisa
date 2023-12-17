@@ -30,6 +30,7 @@ get_header();
     <div class="content">
         <div id="map" style="--bg: url(' <?php echo $travel_icon_url ?> ')"></div>
         <div id="panel-outer">
+            <div id="panel-control"></div>
             <div id="panel"></div>
         </div>
     </div>
