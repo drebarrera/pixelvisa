@@ -124,7 +124,7 @@ body {
     row-gap: 10px;
     column-gap: 10px;
     flex-wrap: wrap;
-    padding: 12px;
+    padding: 5px 12px;
     font-family: Inter;
 }
 
