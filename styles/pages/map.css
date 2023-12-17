@@ -107,7 +107,8 @@ body {
 
 #map-section .content #panel-outer {
     min-width: 280px;
-    width: 100%;
+    width: 29%;
+    height: 700px;
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
@@ -117,8 +118,7 @@ body {
 
 #map-section .content #panel {
     min-width: 280px;
-    width: 29%;
-    height: 700px;
+    width: 100%;
     background-color: var(--offwhite);
     border-radius: 0px 20px 20px 0px;
     overflow-y: scroll;
