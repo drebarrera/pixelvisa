@@ -23,3 +23,15 @@ function filter(button) {
         }
     });
 }
+
+function search(button, input) {
+    console.log('Input value:', input.value);
+}
+
+document.getElementById('country-search').addEventListener('input', function() {
+    search(null, document.getElementById('country-search'));
+});
+
+document.getElementById('city-search').addEventListener('input', function() {
+    search(null, document.getElementById('city-search'));
+});

@@ -154,6 +154,14 @@ body {
     padding: 0px 5px;
 }
 
+#map-section .content #panel-control .filter-button .search-items {
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    display: none;
+    background-color: red;
+}
+
 #map-section .content #panel-control .filter-button:not(.filter-button-toggled):hover {
     background-color: var(--color);
     color: white;
