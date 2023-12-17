@@ -124,13 +124,13 @@ body {
     row-gap: 10px;
     column-gap: 10px;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 12px;
     font-family: Inter;
 }
 
 #map-section .content #panel-control .filter-button {
     font-size: 14px;
-    padding: 4px 6px;
+    padding: 4px 8px;
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
@@ -145,7 +145,7 @@ body {
     border-radius: 5px;
     background-color: var(--offwhite);
     font-size: 14px;
-    padding: 0px 2px;
+    padding: 0px 5px;
 }
 
 #map-section .content #panel-control .filter-button:hover {
