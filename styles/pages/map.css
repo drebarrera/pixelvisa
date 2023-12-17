@@ -158,6 +158,12 @@ body {
     fill: white;
 }
 
+#map-section .content #panel-control .filter-button-toggled {
+    background-color: var(--color);
+    color: white;
+    fill: white;
+}
+
 #map-section .content #panel {
     min-width: 280px;
     width: 100%;
