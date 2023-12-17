@@ -147,6 +147,12 @@ body {
     height: 16px;
 }
 
+#map-section .content #panel-control .filter-button .search-column {
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+}
+
 #map-section .content #panel-control .filter-button input {
     border-radius: 5px;
     background-color: var(--offwhite);
@@ -160,6 +166,8 @@ body {
     position: absolute;
     display: none;
     background-color: red;
+    align-self: flex-start;
+
 }
 
 #map-section .content #panel-control .filter-button:not(.filter-button-toggled):hover {
