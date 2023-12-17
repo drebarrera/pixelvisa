@@ -108,6 +108,8 @@ body {
 #map-section .content #panel-outer {
     min-width: 280px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
     overflow-x: hidden;
     flex-grow: 1;
