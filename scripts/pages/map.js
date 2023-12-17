@@ -3,11 +3,12 @@ var toggled = [];
 function filter(button) {
     if (button.classList.contains("filter-button-toggled")) {
         button.classList.remove("filter-button-toggled");
-        toggled.remove(button.dataset.entrytype);
+        var index = toggled.indexOf(itemToRemove);
+        if (index !== -1) toggled.splice(index, 1);
         console.log(toggled);
     } else {
         button.classList.add("filter-button-toggled");
-        toggled.add(button.dataset.entrytype);
+        toggled.append(button.dataset.entrytype);
         console.log(toggled);
     }
 }
