@@ -8,6 +8,8 @@ function scrollIntoParentView(element, parent) {
     }
 }
 
+var test = "test";
+
 document.addEventListener("DOMContentLoaded", function() {
     let entry_count = 0;
     for (let i = 0; i < map_data.length; i++) {
