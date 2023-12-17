@@ -8,7 +8,7 @@ function filter(button) {
         console.log(toggled);
     } else {
         button.classList.add("filter-button-toggled");
-        toggled.append(button.dataset.entrytype);
+        toggled.push(button.dataset.entrytype);
         console.log(toggled);
     }
 }
