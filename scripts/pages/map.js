@@ -25,16 +25,15 @@ function filter(button) {
 }
 
 function search(searchtype, input) {
-    console.log(searchtype + " .search-items");
-    //document.querySelector(searchtype + " .search-items").style.display = "block";
+    document.querySelector(searchtype + " .search-items").style.display = "block";
     console.log(input.value);
 
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
-    search("country-search", document.querySelector('#country-search input'));
+    search("#country-search", document.querySelector('#country-search input'));
 });
 
 document.getElementById('city-search').addEventListener('input', function() {
-    search("city-search", document.querySelector('#city-search input'));
+    search("#city-search", document.querySelector('#city-search input'));
 });
