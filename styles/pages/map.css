@@ -122,19 +122,24 @@ body {
     display: flex;
     flex-direction: row;
     row-gap: 10px;
-    column-gap: 20px;
+    column-gap: 10px;
     flex-wrap: wrap;
     padding: 10px;
+    font-family: Inter;
 }
 
 #map-section .content #panel-control .filter-button {
     font-size: 14px;
-    padding: 2px 4px;
-    border-radius: 10px;
+    padding: 2px 6px;
+    border-radius: 20px;
     border: 2px solid white;
     background-color: white;
     cursor: pointer;
-    font-family: Inter;
+}
+
+#map-section .content #panel-control .filter-button input {
+    border-radius: 5px;
+    background-color: var(--offwhite);
 }
 
 #map-section .content #panel-control .filter-button:hover {
