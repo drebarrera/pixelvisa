@@ -24,14 +24,16 @@ function filter(button) {
     });
 }
 
-function search(button, input) {
-    console.log('Input value:', input.value);
+function search(searchtype, input) {
+    document.querySelector(searchtype + " .search-items").style.display = "block";
+    console.log(input.value);
+
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
-    search(document.getElementById('country-search'), document.querySelector('#country-search input'));
+    search("country-search", document.querySelector('#country-search input'));
 });
 
 document.getElementById('city-search').addEventListener('input', function() {
-    search(document.getElementById('country-search'), document.querySelector('#city-search input'));
+    search("city-search", document.querySelector('#city-search input'));
 });
