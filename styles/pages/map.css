@@ -151,7 +151,6 @@ body {
     width: 175px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 #map-section .content #panel-control .filter-button input {
@@ -162,13 +161,15 @@ body {
 }
 
 #map-section .content #panel-control .filter-button .search-items {
-    height: 50px;
+    height: fit-content;
     width: 175px;
     position: absolute;
     display: none;
-    background-color: red;
-    margin-top: 18px;
+    margin-top: 20px;
+    margin-left: -2px;
     padding: 2px;
+    background-color: white;
+    border-radius: 0px 5px 0px 5px;
 
 }
 
