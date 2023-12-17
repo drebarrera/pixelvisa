@@ -8,7 +8,7 @@ function scrollIntoParentView(element, parent) {
     }
 }
 
-var test = "test";
+var cities = {};
 
 document.addEventListener("DOMContentLoaded", function() {
     let entry_count = 0;
@@ -199,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
         location_entry.dataset.markerid = marker_keys[0][datum];
         const location_entry_h3 = document.createElement("h3"); // Location header
         location_entry_h3.textContent = datum;
+        cities[datum] = location_entry.dataset.markerid;
         location_entry.appendChild(location_entry_h3);
         const location_country_a = document.createElement("a"); // Flag & Country subheader
         location_country_a.textContent = panel_data[datum].flag + " "  + panel_data[datum].country;
