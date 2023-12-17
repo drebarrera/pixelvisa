@@ -25,7 +25,8 @@ function filter(button) {
 }
 
 function search(searchtype, input) {
-    document.querySelector(searchtype + " .search-items").style.display = "block";
+    console.log(searchtype + " .search-items");
+    //document.querySelector(searchtype + " .search-items").style.display = "block";
     console.log(input.value);
 
 }
