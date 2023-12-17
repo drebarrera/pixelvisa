@@ -166,7 +166,7 @@ body {
 }
 
 #map-section .content #panel-control .filter-button-toggled:hover {
-    background-color: var(--offwhite);
+    background-color: white;
     color: black;
     fill: black;
 }
