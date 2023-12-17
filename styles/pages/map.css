@@ -134,6 +134,8 @@ body {
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -142,7 +144,6 @@ body {
     border-radius: 5px;
     background-color: var(--offwhite);
     font-size: 14px;
-    display: flex;
 }
 
 #map-section .content #panel-control .filter-button:hover {
