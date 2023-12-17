@@ -145,6 +145,7 @@ body {
     border-radius: 5px;
     background-color: var(--offwhite);
     font-size: 14px;
+    padding: 0px 2px;
 }
 
 #map-section .content #panel-control .filter-button:hover {
