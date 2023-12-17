@@ -129,6 +129,7 @@ body {
 }
 
 #map-section .content #panel-control .filter-button {
+    height: 21px;
     font-size: 14px;
     padding: 4px 8px;
     border-radius: 10px;
