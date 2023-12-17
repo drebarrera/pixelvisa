@@ -119,8 +119,23 @@ body {
 #map-section .content #panel-control {
     min-width: 280px;
     width: 100%;
-    height: 200px;
-    background-color: red;
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+
+#map-section .content #panel-control .filter-button {
+    font-size: 14px;
+    padding: 2px 4px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: white;
+}
+
+#map-section .content #panel-control .filter-button:hover {
+    background-color: var(--color);
+    color: white;
 }
 
 #map-section .content #panel {
