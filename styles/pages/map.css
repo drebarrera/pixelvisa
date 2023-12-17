@@ -134,12 +134,15 @@ body {
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 
 #map-section .content #panel-control .filter-button input {
     border-radius: 5px;
     background-color: var(--offwhite);
     font-size: 14px;
+    display: flex;
 }
 
 #map-section .content #panel-control .filter-button:hover {
