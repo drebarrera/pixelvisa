@@ -75,7 +75,12 @@ function toggle(button) {
         if (index !== -1) searched.splice(index, 1);
     }
   
-    var searchResult = Array.from(new Set(Object.values(searchResults).reduce((acc, arr) => acc.concat(arr), [])));
+    var searchResult = [];
+    for (var i = 0; i < searched.length; i++) {
+        for (var j = 0; j < searchResults[searched[i]].length; j++) {
+            searchResult.append(searchResult.push(searchResults[searched[i]][j]));
+        }
+    }
     console.log(searchResult);
     var locationEntries = document.querySelectorAll('.location-entry');
     locationEntries.forEach(function(entry) {
