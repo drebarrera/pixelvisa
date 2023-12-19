@@ -69,7 +69,7 @@ function toggle(button) {
         if (index !== -1) searched.splice(index, 1);
     } else if (button.querySelector('input').dataset.validinput == "true") {
         button.classList.add("filter-button-toggled");
-        searched.push(document.querySelector(searchtype).dataset.entrytype);
+        searched.push(button.dataset.entrytype);
     }
     console.log(button.querySelector("input"));
 }
