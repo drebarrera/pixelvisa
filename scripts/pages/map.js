@@ -32,6 +32,7 @@ function search(searchtype, input) {
     if (input.value != "") {
         if (searchtype == "#city-search") entries = Object.entries(cities);
         const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
+        console.log(input.value.toLowerCase(), filteredEntries)
         filteredEntries.forEach(function(entry) {
             var searchItem = document.createElement("p");
             searchItem.classList.add("search-item");
