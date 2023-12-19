@@ -159,6 +159,21 @@ body {
     font-size: 14px;
     padding: 0px 5px;
     font-weight: 500;
+}
+
+#country-search input {
+    z-index: 104;
+}
+
+#country-search .search-items {
+    z-index: 103;
+}
+
+#city-search input {
+    z-index: 102;
+}
+
+#city-search .search-items {
     z-index: 101;
 }
 
@@ -175,7 +190,6 @@ body {
     color: white;
     flex-direction: column;
     row-gap: 2px;
-    z-index: 100;
 }
 
 #map-section .content #panel-control .filter-button .search-item {
