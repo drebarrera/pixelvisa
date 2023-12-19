@@ -28,7 +28,7 @@ function search(searchtype, input) {
     const searchItems = document.querySelector(searchtype + " .search-items");
     document.querySelectorAll(".search-item").forEach(function(searchItem) {
         searchItems.removeChild(searchItem);
-    })
+    });
     if (input.value != "") {
         if (searchtype == "#city-search") entries = Object.entries(cities);
         const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
@@ -40,6 +40,7 @@ function search(searchtype, input) {
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
                 document.querySelector(searchtype).classList.add("filter-button-toggled");
+                search(searchtype, input);
             });
             searchItems.appendChild(searchItem);
         });
