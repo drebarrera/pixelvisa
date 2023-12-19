@@ -9,6 +9,7 @@ function scrollIntoParentView(element, parent) {
 }
 
 var cities = {};
+var countries = {};
 
 document.addEventListener("DOMContentLoaded", function() {
     let entry_count = 0;
@@ -205,6 +206,8 @@ document.addEventListener("DOMContentLoaded", function() {
         location_entry.appendChild(location_entry_h3);
         const location_country_a = document.createElement("a"); // Flag & Country subheader
         location_country_a.textContent = panel_data[datum].flag + " "  + panel_data[datum].country;
+        if (countries[panel_data[datum].country.toLowerCase] != null) countries[panel_data[datum].country.toLowerCase][1].append(location_entry.dataset.markerid);
+        else countries[panel_data[datum].country.toLowerCase] = [panel_data[datum].country, [location_entry.dataset.markerid]]
         location_country_a.href = panel_data[datum]["country-url"];
         location_country_a.className = "location-country-p";
         location_entry.appendChild(location_country_a);

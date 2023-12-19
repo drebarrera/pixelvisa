@@ -30,9 +30,9 @@ function search(searchtype, input) {
         searchItems.removeChild(searchItem);
     });
     if (input.value != "") {
-        if (searchtype == "#city-search") entries = Object.entries(cities);
+        if (searchtype == "#city-search") var entries = Object.entries(cities);
+        else var entries = Object.entries(countries);
         const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
-        console.log(input.value.toLowerCase(), filteredEntries)
         filteredEntries.forEach(function(entry) {
             var searchItem = document.createElement("p");
             searchItem.classList.add("search-item");
@@ -42,6 +42,7 @@ function search(searchtype, input) {
                 input.value = entry[1][1];
                 document.querySelector(searchtype).classList.add("filter-button-toggled");
                 search(searchtype, input);
+                console.log(e.target.dataset.entryid);
             });
             searchItems.appendChild(searchItem);
         });
