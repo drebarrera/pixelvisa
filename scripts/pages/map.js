@@ -57,6 +57,7 @@ function search(searchtype, input) {
         var index = searched.indexOf(document.querySelector(searchtype).dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
         searchResults[searchtype] = [];
+        document.querySelector(searchtype + " input").dataset.validinput = "false";
     }
 }
 
