@@ -40,6 +40,7 @@ function search(searchtype, input) {
             searchItem.textContent = entry[1][1];
             searchItem.dataset.entryid = entry[1][0];
             document.querySelector(searchtype + " input").dataset.validinput = "false";
+            toggle();
             console.log(document.querySelector(searchtype + " input"));
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
