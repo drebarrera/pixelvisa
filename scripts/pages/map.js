@@ -27,7 +27,7 @@ function filter(button) {
 
 function search(searchtype, input) {
     const searchItems = document.querySelector(searchtype + " .search-items");
-    document.querySelectorAll(".search-item").forEach(function(searchItem) {
+    searchItems.querySelectorAll(".search-item").forEach(function(searchItem) {
         searchItems.removeChild(searchItem);
     });
     if (input.value != "") {
