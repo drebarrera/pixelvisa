@@ -175,6 +175,10 @@ body {
     row-gap: 2px;
 }
 
+#map-section .content #panel-control .filter-button .search-item {
+    padding: 1px 3px;
+}
+
 #map-section .content #panel-control .filter-button .search-item:hover {
     background-color: var(--color);
     color: white;
