@@ -167,10 +167,10 @@ body {
     display: none;
     margin-top: 20px;
     margin-left: -2px;
-    padding: 2px;
+    padding: 6px;
     background-color: white;
     border-radius: 0px 5px 5px 0px;
-
+    color: black;
 }
 
 #map-section .content #panel-control .filter-button:not(.filter-button-toggled):hover {
