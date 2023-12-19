@@ -17,7 +17,7 @@ function filter(button) {
         if (toggled.length > 0) {
             entry.style.display = "none";
             toggled.forEach(function(entrytype) {
-                if (entrytype == entry.dataset.entrytype) toggle = entry.style.display = "flex";
+                if (entrytype == entry.dataset.entrytype) entry.style.display = "flex";
             });
         } else {
             entry.style.display = "flex";
@@ -82,7 +82,7 @@ function toggle(button) {
         if (searched.length > 0) {
             entry.style.display = "none";
             searchResult.forEach(function(entryid) {
-                if (entryid == entry.dataset.markerid) toggle = entry.style.display = "block";
+                if (entryid == entry.dataset.markerid) entry.style.display = "block";
             });
         } else {
             entry.style.display = "block";
