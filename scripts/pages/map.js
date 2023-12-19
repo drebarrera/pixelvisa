@@ -39,7 +39,6 @@ function search(searchtype, input) {
             searchItem.dataset.entryid = entry[1][0];
             searchItems.appendChild(searchItem);
         });
-        searchItems.style.display = "flex";
     } else {
         document.querySelectorAll(".search-item").forEach(function(searchItem) {
             searchItems.removeChild(searchItem);
