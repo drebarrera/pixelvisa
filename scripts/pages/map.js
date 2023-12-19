@@ -41,9 +41,7 @@ function search(searchtype, input) {
             searchItem.dataset.entryid = entry[1][0];
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
-                document.querySelector(searchtype).classList.add("filter-button-toggled");
                 search(searchtype, input);
-                searched.push(document.querySelector(searchtype).dataset.entrytype);
             });
             searchItems.appendChild(searchItem);
         });
@@ -62,9 +60,6 @@ function toggle(button) {
         button.classList.remove("filter-button-toggled");
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
-    } else {
-        button.classList.add("filter-button-toggled");
-        searched.push(button.dataset.entrytype);
     }
     console.log(searched);
 }
