@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create geodesic paths between markers
         var geojson = "";
         if (i > 0) {
-            var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]]
+            var coords = [[marker_datum[0][0], marker_datum[0][1]], [marker_data[i - 1][0][0], marker_data[i - 1][0][1]]];
             if (marker_datum[4] != null && marker_datum[4] != "") {
                 geojson = JSON.parse(marker_datum[4]);
                 var geojsonLayer = L.geoJSON(geojson["route"], {
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
         location_entry.dataset.markerid = marker_keys[0][datum];
         const location_entry_h3 = document.createElement("h3"); // Location header
         location_entry_h3.textContent = datum;
-        cities[panel_data[datum]["city"].toLowerCase()] = location_entry.dataset.markerid;
+        cities[panel_data[datum]["city"].toLowerCase()] = [location_entry.dataset.markerid, panel_data[datum]["city"]];
         location_entry.appendChild(location_entry_h3);
         const location_country_a = document.createElement("a"); // Flag & Country subheader
         location_country_a.textContent = panel_data[datum].flag + " "  + panel_data[datum].country;
