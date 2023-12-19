@@ -64,7 +64,7 @@ function toggle(button) {
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
-    console.log(button.children.querySelector('input'));
+    console.log(button.querySelector('input'));
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
