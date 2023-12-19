@@ -44,9 +44,6 @@ function search(searchtype, input) {
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
                 search(searchtype, input);
-                document.querySelector(searchtype).classList.add("filter-button-toggled");
-                searched.push(document.querySelector(searchtype).dataset.entrytype);
-                console.log(e.target.dataset.entryid);
                 document.querySelector(searchtype + " input").dataset.validinput = "true";
                 console.log(document.querySelector(searchtype + " input"));
             });
