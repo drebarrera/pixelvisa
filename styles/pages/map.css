@@ -158,6 +158,7 @@ body {
     background-color: var(--offwhite);
     font-size: 14px;
     padding: 0px 5px;
+    font-weight: 500;
     z-index: 101;
 }
 

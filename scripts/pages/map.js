@@ -38,6 +38,9 @@ function search(searchtype, input) {
             searchItem.textContent = entry[1][1];
             searchItem.dataset.entryid = entry[1][0];
             searchItems.appendChild(searchItem);
+            searchItems.addEventListener("click", function(e) {
+                alert(e.target.dataset.entryid);
+            })
         });
         searchItems.style.padding = "4px";
     } else {
