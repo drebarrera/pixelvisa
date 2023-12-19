@@ -39,7 +39,7 @@ function search(searchtype, input) {
             searchItem.classList.add("search-item");
             searchItem.textContent = entry[1][1];
             searchItem.dataset.entryid = entry[1][0];
-            document.querySelector(searchtype + "input").dataset.validinput == "false";
+            document.querySelector(searchtype + " input").dataset.validinput == "false";
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
                 search(searchtype, input);
