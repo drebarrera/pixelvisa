@@ -176,7 +176,8 @@ body {
 }
 
 #map-section .content #panel-control .filter-button .search-item {
-    padding: 1px 3px;
+    padding: 1px 6px;
+    font-weight: 700;
 }
 
 #map-section .content #panel-control .filter-button .search-item:hover {
