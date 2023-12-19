@@ -35,10 +35,10 @@ function search(searchtype, input) {
         filteredEntries.forEach(function(entry) {
             var searchItem = document.createElement("p");
             searchItem.classList.add("search-item");
-            searchItem.textContent = entry[1][1];
+            searchItem.textContent = entry[0];
             searchItem.dataset.entryid = entry[1][0];
             searchItem.addEventListener("click", function(e) {
-                input.value = entry[1][1];
+                input.value = entry[0];
                 document.querySelector(searchtype).classList.add("filter-button-toggled");
                 search(searchtype, input);
             });
