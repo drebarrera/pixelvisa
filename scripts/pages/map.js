@@ -67,6 +67,10 @@ function toggle(button) {
     } else if (button.querySelector('input').dataset.validinput == "true") {
         button.classList.add("filter-button-toggled");
         searched.push(button.dataset.entrytype);
+    } else if (button.classList.contains("filter-button-toggled")) {
+        button.classList.remove("filter-button-toggled");
+        var index = searched.indexOf(button.dataset.entrytype);
+        if (index !== -1) searched.splice(index, 1);
     }
     console.log(button.querySelector("input"));
 }
