@@ -82,10 +82,10 @@ function toggle(button) {
         if (searched.length > 0) {
             entry.style.display = "none";
             searchResult.forEach(function(entryid) {
-                if (entryid == entry.dataset.markerid) toggle = entry.style.display = "flex";
+                if (entryid == entry.dataset.markerid) toggle = entry.style.display = "block";
             });
         } else {
-            entry.style.display = "flex";
+            entry.style.display = "block";
         }
     });
 }
