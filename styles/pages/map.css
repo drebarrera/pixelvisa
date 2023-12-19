@@ -166,8 +166,8 @@ body {
     position: absolute;
     display: none;
     margin-top: 24px;
-    margin-left: -4px;
-    padding: 6px;
+    margin-left: -2px;
+    padding: 4px;
     background-color: var(--color);
     border-radius: 0px 0px 5px 5px;
     color: black;
@@ -183,6 +183,10 @@ body {
 #map-section .content #panel-control .filter-button .search-item:hover {
     background-color: var(--color);
     color: white;
+}
+
+#map-section .content #panel-control .filter-button:hover .search-items {
+    display: flex;
 }
 
 #map-section .content #panel-control .filter-button:not(.filter-button-toggled):hover {
