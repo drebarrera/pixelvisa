@@ -25,11 +25,15 @@ function filter(button) {
 }
 
 function search(searchtype, input) {
-    if (searchtype == "#city-search") entries = Object.entries(cities);
-    const filteredEntries = Object.fromEntries(entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase())));
-    const searchItems = document.querySelector(searchtype + " .search-items");
-    console.log(filteredEntries);
-    searchItems.style.display = "block";
+    if (input.value != "") {
+        if (searchtype == "#city-search") entries = Object.entries(cities);
+        const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
+        const searchItems = document.querySelector(searchtype + " .search-items");
+        console.log(filteredEntries);
+        searchItems.style.display = "block";
+    } else {
+
+    }
 
 }
 
