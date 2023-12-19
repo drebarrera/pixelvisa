@@ -80,6 +80,7 @@ function toggle(button) {
     for (var i = 0; i < searched.length; i++) {
         for (var j = 0; j < searchResults["#" + searched[i] + "-search"].length; j++) {
             searchResult.push(searchResult.push(searchResults["#" + searched[i] + "-search"][j]));
+            console.log(searchResults["#" + searched[i] + "-search"][j]);
         }
     }
     console.log(searchResult);
