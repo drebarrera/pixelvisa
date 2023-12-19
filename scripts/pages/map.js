@@ -74,7 +74,8 @@ function toggle(button) {
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
-    var searchResult = Array.from(new Set([...searchResults[0], ...searchResults[1]]));
+  
+    var searchResult = Array.from(new Set(Object.values(searchResults).reduce((acc, arr) => acc.concat(arr), [])));
     var locationEntries = document.querySelectorAll('.location-entry');
     locationEntries.forEach(function(entry) {
         if (searched.length > 0) {
