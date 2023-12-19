@@ -37,10 +37,10 @@ function search(searchtype, input) {
             searchItem.classList.add("search-item");
             searchItem.textContent = entry[1][1];
             searchItem.dataset.entryid = entry[1][0];
+            searchItem.addEventListener("click", function(e) {
+                input.value = entry[1][1];
+            });
             searchItems.appendChild(searchItem);
-            searchItems.addEventListener("click", function(e) {
-                alert(e.target.dataset.entryid);
-            })
         });
         searchItems.style.padding = "4px";
     } else {
