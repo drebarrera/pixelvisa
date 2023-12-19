@@ -75,14 +75,12 @@ function toggle(button) {
         if (index !== -1) searched.splice(index, 1);
     }
   
-    console.log(searched, searchResults);
     var searchResult = [];
     for (var i = 0; i < searched.length; i++) {
         for (var j = 0; j < searchResults["#" + searched[i] + "-search"].length; j++) {
             searchResult.push(searchResults["#" + searched[i] + "-search"][j]);
         }
     }
-    console.log(searchResult);
     var locationEntries = document.querySelectorAll('.location-entry');
     locationEntries.forEach(function(entry) {
         if (searched.length > 0) {
