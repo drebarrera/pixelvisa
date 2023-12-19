@@ -183,8 +183,7 @@ body {
 }
 
 #map-section .content #panel-control .filter-button .search-item:hover {
-    background-color: white;
-    color: black;
+    background-color: var(--charcoal);
 }
 
 #map-section .content #panel-control .filter-button:hover .search-items {
