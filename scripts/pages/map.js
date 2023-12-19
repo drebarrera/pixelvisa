@@ -26,11 +26,11 @@ function filter(button) {
 
 function search(searchtype, input) {
     const searchItems = document.querySelector(searchtype + " .search-items");
+    document.querySelectorAll(".search-item").forEach(function(searchItem) {
+        searchItems.removeChild(searchItem);
+    })
     if (input.value != "") {
         if (searchtype == "#city-search") entries = Object.entries(cities);
-        document.querySelectorAll(".search-item").forEach(function(searchItem) {
-            searchItems.removeChild(searchItem);
-        })
         const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
         filteredEntries.forEach(function(entry) {
             var searchItem = document.createElement("p");
