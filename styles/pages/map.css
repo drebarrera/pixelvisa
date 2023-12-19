@@ -168,7 +168,7 @@ body {
     margin-top: 24px;
     margin-left: -4px;
     padding: 6px;
-    background-color: white;
+    background-color: var(--offwhite);
     border-radius: 0px 0px 5px 5px;
     color: black;
     flex-direction: column;
@@ -177,7 +177,7 @@ body {
 
 #map-section .content #panel-control .filter-button .search-item {
     padding: 1px 6px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 #map-section .content #panel-control .filter-button .search-item:hover {
