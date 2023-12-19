@@ -74,7 +74,18 @@ function toggle(button) {
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
-    console.log(searchResults);
+    var searchResult = Array.from(new Set([...searchResults[0], ...searchResults[1]]));
+    var locationEntries = document.querySelectorAll('.location-entry');
+    locationEntries.forEach(function(entry) {
+        if (toggled.length > 0) {
+            entry.style.display = "none";
+            searchResult.forEach(function(entryid) {
+                if (entryid == entry.dataset.markerid) toggle = entry.style.display = "flex";
+            });
+        } else {
+            entry.style.display = "flex";
+        }
+    });
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
