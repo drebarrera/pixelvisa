@@ -208,9 +208,7 @@ document.addEventListener("DOMContentLoaded", function() {
         location_country_a.textContent = panel_data[datum].flag + " "  + panel_data[datum].country;
         console.log();
         if (!countries.hasOwnProperty(panel_data[datum].country.toLowerCase())) countries[panel_data[datum].country.toLowerCase()] = [panel_data[datum].country, [location_entry.dataset.markerid]];
-        else console.log(countries[panel_data[datum].country.toLowerCase()]);
-        //if (countries.hasOwnProperty(panel_data[datum].country.toLowerCase)) console.log(countries[panel_data[datum].country.toLowerCase]);//countries[panel_data[datum].country.toLowerCase][1].append(location_entry.dataset.markerid);
-        //else countries[panel_data[datum].country.toLowerCase] = [panel_data[datum].country, [location_entry.dataset.markerid]]
+        else countries[panel_data[datum].country.toLowerCase()][1].append(location_entry.dataset.markerid);
         location_country_a.href = panel_data[datum]["country-url"];
         location_country_a.className = "location-country-p";
         location_entry.appendChild(location_country_a);
