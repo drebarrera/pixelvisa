@@ -1,6 +1,6 @@
 var toggled = [];
 var searched = [];
-var filtered = [];
+var searchResults = {};
 
 function filter(button) {
     if (button.classList.contains("filter-button-toggled")) {
@@ -41,12 +41,12 @@ function search(searchtype, input) {
             searchItem.dataset.entryid = entry[1][0];
             document.querySelector(searchtype + " input").dataset.validinput = "false";
             toggle(document.querySelector(searchtype));
-            console.log(document.querySelector(searchtype + " input"));
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
                 search(searchtype, input);
                 document.querySelector(searchtype + " input").dataset.validinput = "true";
-                console.log(document.querySelector(searchtype + " input"));
+                console.log(searchItem.dataset.entryid);
+
             });
             searchItems.appendChild(searchItem);
         });
@@ -57,7 +57,6 @@ function search(searchtype, input) {
         var index = searched.indexOf(document.querySelector(searchtype).dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
-    console.log(searched);
 }
 
 function toggle(button) {
@@ -73,7 +72,6 @@ function toggle(button) {
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
-    console.log(button.querySelector("input"));
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
