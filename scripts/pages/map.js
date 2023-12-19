@@ -63,13 +63,15 @@ function search(searchtype, input) {
 }
 
 function toggle(button) {
-    console.log(document.querySelector(searchtype + " input"));
     if (button.querySelector('input').dataset.validinput == "true" && button.classList.contains("filter-button-toggled")) {
         button.classList.remove("filter-button-toggled");
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
+    } else if (button.querySelector('input').dataset.validinput == "true") {
+        button.classList.add("filter-button-toggled");
+        searched.push(document.querySelector(searchtype).dataset.entrytype);
     }
-    console.log(document.querySelector(searchtype + " input"));
+    console.log(button.querySelector("input"));
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
