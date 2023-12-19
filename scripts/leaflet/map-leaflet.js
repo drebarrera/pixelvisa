@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             last_key = marker_data[i][3].toString();
+            if ( marker_data[i][3] == marker_data[marker_data.length - 1][3]) marker.setIcon(current_icon); // Change last marker to current icon
         }
 
         // Create geodesic paths between markers
@@ -187,8 +188,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-    // Change last marker to current icon
-    marker.setIcon(current_icon);
 
     // Add data to panel
     const panel = document.getElementById("panel");
