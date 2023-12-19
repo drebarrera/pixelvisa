@@ -25,14 +25,25 @@ function filter(button) {
 }
 
 function search(searchtype, input) {
+    const searchItems = document.querySelector(searchtype + " .search-items");
     if (input.value != "") {
         if (searchtype == "#city-search") entries = Object.entries(cities);
+        document.querySelectorAll(".search-item").forEach(function(searchItem) {
+            searchItems.removeChild(searchItem);
+        })
         const filteredEntries = entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase()));
-        const searchItems = document.querySelector(searchtype + " .search-items");
-        console.log(filteredEntries);
+        filteredEntries.forEach(function(entry) {
+            var searchItem = document.createElement("p");
+            searchItem.classList.add("search-item");
+            searchItem.textContent = entry[1][1];
+            searchItem.dataset.entryid = entry[1][0];
+            searchItems.appendChild(searchItem);
+        });
         searchItems.style.display = "block";
     } else {
-
+        document.querySelectorAll(".search-item").forEach(function(searchItem) {
+            searchItems.removeChild(searchItem);
+        })
     }
 
 }
