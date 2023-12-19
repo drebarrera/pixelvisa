@@ -39,14 +39,16 @@ function search(searchtype, input) {
             searchItem.classList.add("search-item");
             searchItem.textContent = entry[1][1];
             searchItem.dataset.entryid = entry[1][0];
-            document.querySelector(searchtype + " input").dataset.validinput == "false";
+            document.querySelector(searchtype + " input").dataset.validinput = "false";
+            console.log(document.querySelector(searchtype + " input"));
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
                 search(searchtype, input);
                 document.querySelector(searchtype).classList.add("filter-button-toggled");
                 searched.push(document.querySelector(searchtype).dataset.entrytype);
                 console.log(e.target.dataset.entryid);
-                document.querySelector(searchtype + " input").dataset.validinput == "true";
+                document.querySelector(searchtype + " input").dataset.validinput = "true";
+                console.log(document.querySelector(searchtype + " input"));
             });
             searchItems.appendChild(searchItem);
         });
@@ -61,11 +63,13 @@ function search(searchtype, input) {
 }
 
 function toggle(button) {
+    console.log(document.querySelector(searchtype + " input"));
     if (button.querySelector('input').dataset.validinput == "true" && button.classList.contains("filter-button-toggled")) {
         button.classList.remove("filter-button-toggled");
         var index = searched.indexOf(button.dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
     }
+    console.log(document.querySelector(searchtype + " input"));
 }
 
 document.getElementById('country-search').addEventListener('input', function() {
