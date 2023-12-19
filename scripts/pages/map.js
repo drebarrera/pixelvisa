@@ -76,6 +76,7 @@ function toggle(button) {
     }
   
     var searchResult = Array.from(new Set(Object.values(searchResults).reduce((acc, arr) => acc.concat(arr), [])));
+    console.log(searchResult);
     var locationEntries = document.querySelectorAll('.location-entry');
     locationEntries.forEach(function(entry) {
         if (searched.length > 0) {
