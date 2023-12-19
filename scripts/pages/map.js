@@ -77,7 +77,7 @@ function toggle(button) {
     var searchResult = Array.from(new Set([...searchResults[0], ...searchResults[1]]));
     var locationEntries = document.querySelectorAll('.location-entry');
     locationEntries.forEach(function(entry) {
-        if (toggled.length > 0) {
+        if (searched.length > 0) {
             entry.style.display = "none";
             searchResult.forEach(function(entryid) {
                 if (entryid == entry.dataset.markerid) toggle = entry.style.display = "flex";
