@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 toggle(document.querySelector(searchtype));
                 searchResults[searchtype] = [];
                 searchItem.addEventListener("click", function(e) {
+                    alert("hi");
                     input.value = entry[1][1];
                     search(searchtype, input);
                     document.querySelector(searchtype + " input").dataset.validinput = "true";
