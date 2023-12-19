@@ -171,7 +171,7 @@ body {
     padding: 0px;
     background-color: var(--color);
     border-radius: 0px 0px 5px 5px;
-    color: black;
+    color: white;
     flex-direction: column;
     row-gap: 2px;
     z-index: 100;
@@ -183,8 +183,8 @@ body {
 }
 
 #map-section .content #panel-control .filter-button .search-item:hover {
-    background-color: var(--color);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 #map-section .content #panel-control .filter-button:hover .search-items {
