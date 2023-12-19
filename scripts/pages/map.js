@@ -49,6 +49,7 @@ function search(searchtype, input) {
         searchItems.style.padding = "4px";
     } else {
         searchItems.style.padding = "0px";
+        document.querySelector(searchtype).classList.remove("filter-button-toggled");
     }
 
 }
