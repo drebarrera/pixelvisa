@@ -39,6 +39,7 @@ function search(searchtype, input) {
             searchItem.dataset.entryid = entry[1][0];
             searchItem.addEventListener("click", function(e) {
                 input.value = entry[1][1];
+                document.querySelector(searchtype).classList.add("filter-button-toggled");
             });
             searchItems.appendChild(searchItem);
         });
