@@ -79,7 +79,7 @@ function toggle(button) {
     var searchResult = [];
     for (var i = 0; i < searched.length; i++) {
         for (var j = 0; j < searchResults[searched[i]].length; j++) {
-            searchResult.append(searchResult.push(searchResults[searched[i]][j]));
+            searchResult.append(searchResult.push(searchResults["#" + searched[i] + "-search"][j]));
         }
     }
     console.log(searchResult);
