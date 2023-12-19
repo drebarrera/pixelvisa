@@ -25,11 +25,8 @@ function filter(button) {
 }
 
 function search(searchtype, input) {
-    document.querySelector(searchtype + " .search-items").style.display = "block";
-    console.log(input.value);
     if (searchtype == "#city-search") entries = Object.entries(cities);
     const filteredEntries = Object.fromEntries(entries.filter(([key, value]) => key.startsWith(input.value.toLowerCase())));
-    console.log(filteredEntries);
 }
 
 document.getElementById('country-search').addEventListener('input', function() {

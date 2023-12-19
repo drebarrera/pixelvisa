@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
             markerElement.dataset.markerid = marker_data[i][3].toString();
             markers[marker_data[i][3].toString()] = marker;
             // Bind popup to marker
-            marker.bindPopup("<b>" + visit_svg + marker_datum[1] + " " + marker_datum[2] + "</b>", { autoPan: false }).openPopup();
+            marker.bindPopup("<b>" + visit_svg + marker_datum[1] + " " + marker_datum[2] + "</b>", { autoPan: false });
 
             // Bind marker click event
             marker.on('click', function(e) {
@@ -162,7 +162,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             last_key = marker_data[i][3].toString();
-            if ( marker_data[i][3] == marker_data[marker_data.length - 1][3]) marker.setIcon(current_icon); // Change last marker to current icon
+            if ( marker_data[i][3] == marker_data[marker_data.length - 1][3]) {
+                marker.setIcon(current_icon); // Change last marker to current icon
+                marker.openPopup();
+            }
         }
 
         // Create geodesic paths between markers
