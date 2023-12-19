@@ -56,6 +56,7 @@ function search(searchtype, input) {
         document.querySelector(searchtype).classList.remove("filter-button-toggled");
         var index = searched.indexOf(document.querySelector(searchtype).dataset.entrytype);
         if (index !== -1) searched.splice(index, 1);
+        searchResults[searchtype] = [];
     }
 }
 
