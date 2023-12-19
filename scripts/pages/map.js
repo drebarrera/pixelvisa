@@ -46,7 +46,7 @@ function search(searchtype, input) {
                 document.querySelector(searchtype).classList.add("filter-button-toggled");
                 searched.push(document.querySelector(searchtype).dataset.entrytype);
                 console.log(e.target.dataset.entryid);
-                document.querySelector(searchtype + "input").dataset.validinput == "true";
+                document.querySelector(searchtype + " input").dataset.validinput == "true";
             });
             searchItems.appendChild(searchItem);
         });
