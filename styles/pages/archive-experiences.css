@@ -1,0 +1,175 @@
+body {
+    background-color: var(--charcoal);
+}
+
+#experiences-section {
+    width: 100vw;
+    min-height: calc(100vh - 90px);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    padding: 65px 0px 25px 0px;
+    overflow-x: hidden;
+}
+
+#experiences-section .content {
+    max-width: 90%;
+    height: fit-content;
+    margin: 25px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    border: 20px solid var(--offwhite);
+    row-gap: 20px;
+    padding: 100px;
+}
+
+.content h2 {
+    font-size: 32px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.content h2 svg {
+    height: 40px;
+    margin-top: -10px;
+}
+
+#locations {
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 30px 20px 0px 20px;
+    justify-content: center;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+#locations .card {
+    width: 250px;
+    height: 375px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 10px;
+    color: white;
+    font-size: 20px;
+    z-index: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+    text-decoration: none;
+}
+
+#locations .card .location-name {
+    margin-top: 50px;
+}
+
+#locations .card h5 {
+    font-size: 22px;
+}
+
+#locations .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), var(--bg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: blur(0px);
+}
+
+#locations .card:hover {
+    animation: 0.5s hoverCard;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverCard {
+    0% {
+        transform: scale(1);
+    } 100% {
+        transform: scale(1.1);
+    }
+}
+
+.button {
+    max-width: 80%;
+    background-color: var(--red);
+    font-size: 14px;
+    padding: 2px 6px;
+    border: 3px solid var(--red);
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    justify-self: flex-end;
+}
+
+.button:hover {
+    animation: 0.15s buttonToBlack;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+@keyframes buttonToBlack {
+    0% {
+        background-color: var(--red);
+    }
+    100% {
+        background-color: rgba(0,0,0,0.8);
+    }
+}
+
+.place-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+
+}
+
+.place-button a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    padding: 6px 10px;
+    border: 3px solid var(--place-color);
+    background-color: var(--place-color);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    align-self: center;
+    fill: white;
+}
+
+.place-button a svg {
+    height: 20px;
+}
+
+.place-button a:hover {
+    background-color: white;
+    color: var(--place-color);
+    fill: var(--place-color);
+}
+
+@media screen and (max-width: 768px) {
+    
+}
