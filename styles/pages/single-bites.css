@@ -36,7 +36,7 @@ body {
 }
 
 .section h4 {
-    color: var(--red);
+    color: var(--blue);
     font-weight: 600;
     font-size: 20px;
 }
