@@ -163,6 +163,7 @@ body {
 @media screen and (max-width: 768px) {
     #experiences-section .content {
         padding: 15px 15px;
+        border-width:0px;
     }
 
     #locations .card {
