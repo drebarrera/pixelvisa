@@ -190,7 +190,7 @@
                                 <p class="location-name">';
                             echo ($current_post_type == 'cities') ? $data['location-en'] : $data['location-post-location-en'];
                             echo '</p><h5>' ;
-                            echo ($current_post_type == 'cities') ? $data['location-lang'] : $data['experience'];
+                            echo ($current_post_type == 'cities') ? $data['city'] : $data['experience'];
                             echo '</h5><div class="button"><p>';
                             echo ($current_post_type == 'cities') ? 'Explore ' . $data['city'] : 'More About ' . $data['experience'];
                             echo '</p></div></a>';

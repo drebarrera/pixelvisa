@@ -35,7 +35,7 @@ get_header();
                     $latest_travel->the_post();
                     $current_post_type = get_post_type(get_the_ID());
                     if ($current_post_type == 'cities') {
-                        $data = get_data(["cover-photo", "location-lang", "location-en", "city", "get-permalink"], array());
+                        $data = get_data(["cover-photo", "location-en", "city", "get-permalink"], array());
                     } elseif ($current_post_type == 'experiences') {
                         $data = get_data(["cover-photo", "experience", "get-permalink", "location-post", ["location-en", "city"]], array());
                     }
@@ -46,7 +46,7 @@ get_header();
                             <p class="location-name">';
                         echo ($current_post_type == 'cities') ? $data['location-en'] : $data['location-post-location-en'];
                         echo '</p><h5>' ;
-                        echo ($current_post_type == 'cities') ? $data['location-lang'] : $data['experience'];
+                        echo ($current_post_type == 'cities') ? $data['city'] : $data['experience'];
                         echo '</h5><div class="button"><p>';
                         echo ($current_post_type == 'cities') ? 'Explore ' . $data['city'] : 'More About ' . $data['experience'];
                         echo '</p></div></a>';
