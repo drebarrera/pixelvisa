@@ -10,7 +10,7 @@
         <header onclick="headerDown(this)">
             <nav>
                 <?php 
-                    $links = array("Home" => "/", "Map" => "/map", "Destinations" => "/destinations", /*"Coworking" => "/coworking",*/ "Food" => "/food", "Stays" => "/stays", "Videos" => "/videos", "About Me" => "/#about-section");
+                    $links = array("Home" => "/", "Map" => "/map", "Destinations" => "/destinations", "Experiences" => "/experiences",/*"Coworking" => "/coworking",*/ "Food" => "/bites", "Stays" => "/stays", "Videos" => "/videos", "About Me" => "/#about-section");
                     foreach ($links as $text => $url) echo "<a href='$url' class='navlink'>$text</a>";
                 ?>
             </nav>

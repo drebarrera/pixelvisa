@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue);
+    background-color: var(--red);
     padding: 65px 0px 25px 0px;
     overflow-x: hidden;
 }
@@ -37,12 +37,12 @@ body {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
-    column-gap: 8px;
+    column-gap: 12px;
 }
 
 .content h2 svg {
     height: 40px;
-    margin-top: -10px;
+    margin-top: -2px;
 }
 
 #locations {
@@ -99,6 +99,11 @@ body {
 #locations .card:hover {
     animation: 0.5s hoverCard;
     animation-fill-mode: forwards;
+}
+
+.cuisine {
+    font-size: 16px;
+    padding: 0px 10px;
 }
 
 @keyframes hoverCard {
@@ -169,5 +174,10 @@ body {
     #locations {
         column-gap: calc(30px * 0.75);
         row-gap: calc(30px * 0.75);
+    }
+
+    .cuisine {
+        font-size: calc(16px * 0.75);
+        padding: 0px calc(10px * 0.75);
     }
 }
