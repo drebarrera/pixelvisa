@@ -205,7 +205,7 @@ footer .content #credit {
 footer .content #credit a {
     margin-left: 0;
     font-size: 18px;
-    color: var(--blue);
+    color: var(--red);
 }
 
 footer .content #credit a:hover {
