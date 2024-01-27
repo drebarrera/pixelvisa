@@ -1,0 +1,422 @@
+body {
+    background-color: var(--charcoal);
+}
+
+#experiences-section {
+    width: 100vw;
+    min-height: calc(100vh - 90px);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    padding: 65px 0px 25px 0px;
+    overflow-x: hidden;
+}
+
+#experiences-section .content {
+    max-width: 90%;
+    height: fit-content;
+    margin: 25px;
+    background-color: var(--offwhite);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    border: 20px solid var(--offwhite);
+    row-gap: 20px;
+}
+
+#places-section {
+    width: 90%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 20px 0px;
+}
+
+#places-section h3 {
+    font-size: 40px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+#places-section h3 svg {
+    height: 50px;
+    margin-top: -10px;
+}
+
+#places-supertitle {
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.place-outer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+    margin-top: 50px;
+    background-color: var(--offwhite);
+}
+
+#countries-outer {
+    --place-color: var(--green);
+    background-color: var(--green);
+}
+
+#bites-outer {
+    --place-color: var(--red);
+    background-color: var(--red);
+}
+
+#locations-outer {
+    --place-color: var(--blue);
+    background-color: var(--blue);
+    margin-bottom: 35px;
+}
+
+.place-outer h4 {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-left: 15px;
+}
+
+.place-outer h4 svg {
+    height: 28px;
+    fill: white;
+}
+
+.place {
+    width: calc(100% - 10px);
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+    column-gap: 5px;
+}
+
+.place-inner {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+
+#places-section .place .card {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    z-index: 0;
+    border-radius: 10px;
+    background: /*linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),*/ var(--bg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}
+
+#places-section .place .card-outer {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#places-section .place .card-outer h5 {
+    width: 90%;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: left;
+    font-family: Inter;
+    margin-top: 20px;
+}
+
+#places-section .place .card-outer:hover .card {
+    animation: 0.5s hoverCard;
+    animation-fill-mode: forwards;
+}
+
+#places-section .place .card-outer h5 span {
+    display: none;
+}
+
+#places-section .place .card-outer p {
+    width: 90%;
+    height: fit-content;
+    font-size: 15px;
+    text-align: left;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#places-section .place .card-outer:hover {
+    background-color: var(--offwhite); /*var(--place-color);*/
+    /*color: white;*/
+}
+
+#places-section .content {
+    flex-direction: column;
+}
+
+#places-section .content h4 {
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+#places-section .content h4 svg {
+    height: 32px;
+    margin-top: -10px;
+}
+
+#places-section #locations {
+    width: calc(100% - 40px);
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 30px 20px 0px 20px;
+    justify-content: center;
+    background-color: white;
+}
+
+#places-section #locations .card {
+    width: 250px;
+    height: 375px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 10px;
+    color: white;
+    font-size: 20px;
+    z-index: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}
+
+#places-section #locations .card .location-name {
+    margin-top: 50px;
+}
+
+#places-section #locations .card h5 {
+    font-size: 22px;
+}
+
+#places-section #locations .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), var(--bg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: blur(0px);
+}
+
+#places-section #locations .card:hover {
+    animation: 0.5s hoverCard;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverCard {
+    0% {
+        transform: scale(1);
+    } 100% {
+        transform: scale(1.1);
+    }
+}
+
+#places-section .button {
+    max-width: 80%;
+    background-color: var(--red);
+    font-size: 14px;
+    padding: 2px 6px;
+    border: 3px solid var(--red);
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+#places-section .button:hover {
+    animation: 0.15s buttonToBlack;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+@keyframes buttonToBlack {
+    0% {
+        background-color: var(--red);
+    }
+    100% {
+        background-color: rgba(0,0,0,0.8);
+    }
+}
+
+#places-section .place-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+
+}
+
+#places-section .place-button a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    padding: 6px 10px;
+    border: 3px solid var(--place-color);
+    background-color: var(--place-color);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    align-self: center;
+    fill: white;
+}
+
+#places-section .place-button a svg {
+    height: 20px;
+}
+
+#places-section .place-button a:hover {
+    background-color: white;
+    color: var(--place-color);
+    fill: var(--place-color);
+}
+
+@media screen and (max-width: 768px) {
+    #hero #location {
+        font-size: 28px;
+    }
+
+    #places-section #places-supertitle {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    #places-section h3 {
+        font-size: 32px;
+    }
+
+    #places-section h3 svg {
+        height: 40px;
+    }
+
+    .place-outer {
+        margin-top: 20px;
+    }
+
+    .place-outer h4 {
+        font-size: 18px;
+    }
+
+    .place-outer h4 svg {
+        height: 20px;
+    }
+
+    #places-section .place .card-outer {
+        width: 125px;
+        padding: 5px;
+        row-gap: 15px;
+    }
+
+    #places-section .place .card {
+        width: 125px;
+        height: 125px;
+    }
+
+    #places-section .place .card-outer h5 {
+        font-size: 16px;
+    }
+
+    #map-section h3 {
+        font-size: 24px;
+    }
+
+    #map-section h3 svg {
+        font-size: 24px;
+    }
+
+    #map-section #underlayer {
+        display: none;
+    }
+
+    #map-section #overlayer {
+        margin-top: 60px;
+        background-color: rgba(0,0,0,0.25);
+    }
+
+    #map-section #overlayer #dre-travel {
+        display: none;
+    }
+
+    #map-section #overlayer .button{
+        display: flex;
+    }
+
+    #status-section .content {
+        width: 98%;
+    }
+
+    #status-section .status-data {
+        font-size: 18px;
+    }
+
+    #status-section p {
+        font-size: 14px;
+    }
+
+    #self-portrait {
+        min-width: 300px;
+    }
+
+    #about-section .content #text-info {
+        min-width: 325px;
+        padding: 10px;
+    }
+}
