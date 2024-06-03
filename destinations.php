@@ -36,7 +36,7 @@ get_header();
                 <p>Southeast Asia</p>
             </div>
 <?php
-        $regions = ["Southeast Asia", "North America"];
+        $regions = ["Southeast Asia", "East Asia", "North America"];
         $current_date = current_time('Ymd'); 
 
         foreach ($regions as $r) {
