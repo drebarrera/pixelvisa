@@ -6,15 +6,15 @@
         'posts_per_page' => 1,
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'meta_key' => 'date',
+        /*'meta_key' => 'active-date',
         'meta_query' => array(
             array(
-                'key' => 'date',
+                'key' => 'active-date',
                 'compare' => '<=',
                 'value' => $current_date,
                 'type' => 'NUMERIC'
             ),
-        )
+        )*/
     );
 
     $latest_travel = new WP_Query( $args );
