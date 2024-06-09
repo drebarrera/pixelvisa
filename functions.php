@@ -213,7 +213,7 @@
                 'posts_per_page' => 5000,
                 'orderby' => 'meta_value_num',
                 'order' => 'ASC',
-                /*'meta_key' => 'active-date',
+                'meta_key' => 'active-date',
                 'meta_query' => array(
                     array(
                         'key' => 'active-date',
@@ -221,7 +221,7 @@
                         'value' => $current_date,
                         'type' => 'NUMERIC'
                     ),
-                )*/
+                )
             );
 
             $latest_travel = new WP_Query( $args );
