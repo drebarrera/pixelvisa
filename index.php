@@ -6,10 +6,10 @@
         'posts_per_page' => 1,
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'meta_key' => 'active-date',
+        'meta_key' => 'date',
         'meta_query' => array(
             array(
-                'key' => 'active-date',
+                'key' => 'date',
                 'compare' => '<=',
                 'value' => $current_date,
                 'type' => 'NUMERIC'
