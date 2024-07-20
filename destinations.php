@@ -42,7 +42,7 @@ get_header();
         foreach ($regions as $r) {
             $args = array(
                 'post_type' => 'countries',
-                'posts_per_page' => 40,
+                'posts_per_page' => 1000,
                 'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'meta_key' => 'rating',
@@ -82,7 +82,7 @@ get_header();
 
         $args = array(
             'post_type' => 'cities',
-            'posts_per_page' => 40,
+            'posts_per_page' => 1000,
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
             'meta_key' => 'rating',
