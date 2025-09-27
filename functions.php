@@ -93,6 +93,28 @@
                 'has_archive' => true,
             )
         );
+        register_post_type( 'atlas_cities',
+            array(
+                'labels' => array(
+                    'name' => __( 'Atlas Cities' ),
+                    'singular_name' => __( 'Atlas City' )
+                ),
+                'public' => false,
+                'show_ui' => true,
+                'has_archive' => true,
+            )
+        );
+        register_post_type( 'atlas_routes',
+            array(
+                'labels' => array(
+                    'name' => __( 'Atlas Routes' ),
+                    'singular_name' => __( 'Atlas Route' )
+                ),
+                'public' => false,
+                'show_ui' => true,
+                'has_archive' => true,
+            )
+        );
     }
 
     function leaflet() {
@@ -106,7 +128,7 @@
         } else {
             $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
             if ( empty($template_name) ) $template_name = basename($template, '.php');
-            if ( $template_name === 'map' || $template_name == 'single-countries' || $template_name == 'single-cities' || $template_name == 'single-bites' || $template_name == 'single-experiences' ) {
+            if ( $template_name === 'map' || $template_name == 'single-countries' || $template_name == 'single-cities' || $template_name == 'single-bites' || $template_name == 'single-experiences' || $template_name === 'atlas' ) {
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
                 wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), null, true);
                 wp_enqueue_script('leaflet-geodesic-js', 'https://cdn.jsdelivr.net/npm/leaflet.geodesic', array('leaflet-js'), null, true);
@@ -267,11 +289,92 @@
         }
     }
 
+    function localize_atlas_data() {
+        global $post;
+        global $template;
+        if ( !empty($post) ) $template_name = str_replace(".php", "", get_post_meta( $post->ID, '_wp_page_template', true ));
+        else $template_name = "";
+        if ( empty($template_name) ) $template_name = basename($template, '.php');
+        if (is_front_page() || $template_name === 'atlas') {
+            $filter = [];
+            $map_context = null;
+            if ($template_name == 'single-countries') {
+                $filter['location-post-country-post-country'] = get_field('country');
+                $map_context['coordinates'] = [floatval(get_field('latitude')), floatval(get_field('longitude'))];
+                $map_context['country'] = get_field('country');
+                $map_context['ISO_A3'] = get_field('abbrv-3');
+            } else if ($template_name == 'single-cities') {
+                $filter['location-post-city'] = get_field('city');
+                $map_context['coordinates'] = [floatval(get_field('latitude')), floatval(get_field('longitude'))];
+            } 
+            $current_date = current_time('Ymd'); 
+            $map_data = array();
+            
+            $args = array(
+                'post_type' => 'travel_logs',
+                'posts_per_page' => 5000,
+                'orderby' => 'meta_value_num',
+                'order' => 'ASC',
+                'meta_key' => 'active-date',
+                'meta_query' => array(
+                    array(
+                        'key' => 'active-date',
+                        'compare' => '<=',
+                        'value' => $current_date,
+                        'type' => 'NUMERIC'
+                    ),
+                )
+            );
+
+            $latest_travel = new WP_Query( $args );
+            $state_last = "";
+            if ( $latest_travel->have_posts() ) {
+                while ( $latest_travel->have_posts() ) {
+                    $latest_travel->the_post();
+                    $map_data[] = get_data(["geojson", "transportation", "active-date","location-post", ["location-en", "latitude", "longitude", "location-lang", "city", "get-permalink", "country-post", ["country", "flag", "get-permalink"]],"video-post", ["title", "get-permalink", "type", "latitude", "longitude"], "experience-post", ["experience", "get-permalink", "latitude", "longitude"], "food-post", ["restaurant", "get-permalink", "rating", "latitude", "longitude", "meal-price"]], array());
+                }
+            }
+
+            /*if (is_front_page()) {
+                $filtered_map_data = [];
+                for ($i = 0; $i < count($map_data); $i++) {
+                    if ($i <= 1 || $map_data[$i]["location-post-country-post-country"] !== $map_data[$i - 1]["location-post-country-post-country"]) $filtered_map_data[] = $map_data[$i];
+                }
+                $map_data = array_values($filtered_map_data);
+            } else */if ($template_name === 'single-countries' || $template_name === 'single-cities') {
+                
+                foreach ($filter as $f => $v) {
+                    $filtered_map_data = [];
+                    for ($i = 0; $i < count($map_data); $i++) {
+                        if ($map_data[$i][$f] == $v) {
+                            $filtered_map_data[] = $map_data[$i];
+                        }
+                    }
+                    $map_data = array_values($filtered_map_data);
+                }
+            }
+
+            wp_localize_script('custom-leaflet', 'map_data', $map_data);
+            if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
+        }
+
+        if ($template_name == 'single-bites') {
+            $map_context = null;
+            $map_context = array("coordinates" => [get_field("latitude"), get_field("longitude")], "restaurant" => get_field("restaurant"));
+            if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
+        } else if ($template_name == 'single-experiences') {
+            $map_context = null;
+            $map_context = array("coordinates" => [get_field("latitude"), get_field("longitude")], "experience" => get_field("experience"));
+            if ($map_context != null) wp_localize_script('custom-leaflet', 'map_context', $map_context);
+        }
+    }
+
     add_action( 'init', 'register_post_types' );
     add_action('wp_enqueue_scripts', 'styles');
     add_action('wp_enqueue_scripts', 'scripts');
     add_action('wp_enqueue_scripts', 'leaflet');
     add_action('wp_enqueue_scripts', 'localize_map_data');
+    add_action('wp_enqueue_scripts', 'localize_atlas_data');
     add_filter('show_admin_bar', '__return_false');
 
 ?>
